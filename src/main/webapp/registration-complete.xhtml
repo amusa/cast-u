@@ -1,0 +1,290 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <body>
+
+        <ui:composition template="./WEB-INF/castu-template-main.xhtml">
+
+            <ui:define name="title">
+                Register
+            </ui:define>
+
+            <ui:define name="breadcrumb">
+                <!-- breadcrumb start -->
+                <!-- ================ -->
+                <div class="breadcrumb-container">
+                    <div class="container">
+                        <ol class="breadcrumb">
+                            <li><i class="fa fa-home pr-10"></i><a href="index.xhtml">Home</a></li>
+                            <li class="active">Registration</li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- breadcrumb end -->
+                <!-- ================ -->
+            </ui:define>
+
+            <ui:define name="main-content">
+                <!-- section start -->
+                <!-- ================ -->
+                <div class="section ">
+                    <div class="container">
+                        <h2>Register as a talent</h2>
+                        <h3>What are you interested?</h3>
+                        <h:form id="UserForm" role="form">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input jsf:id="acting" type="checkbox" jsf:value="#{userController.currentUser.acting}">
+                                                <!--                                                <f:ajax/>-->
+                                            </input>
+                                            Acting
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input jsf:id="modeling" type="checkbox" jsf:value="#{userController.currentUser.modeling}">
+                                                <!--                                                <f:ajax/>-->
+                                            </input>
+                                            Modeling
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input jsf:id="musician" type="checkbox" jsf:value="#{userController.currentUser.musician}">
+                                                <!--                                                <f:ajax/>-->
+                                            </input>
+                                            Musician
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input jsf:id="photography" type="checkbox" jsf:value="#{userController.currentUser.photography}">
+                                                <!--                                                <f:ajax/>-->
+                                            </input>                                                    
+                                            Photography
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input jsf:id="tvReality" type="checkbox" jsf:value="#{userController.currentUser.tvReality}">
+                                                <!--                                                <f:ajax/>-->
+                                            </input>
+                                            TV &amp; Reality
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input jsf:id="dancing" type="checkbox" jsf:value="#{userController.currentUser.dancing}">
+                                                <!--                                                <f:ajax/>-->
+                                            </input>
+                                            Dancing
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input jsf:id="filmStageCrew" type="checkbox" jsf:value="#{userController.currentUser.filmStageCrew}">
+                                                <!--                                                <f:ajax/>-->
+                                            </input>
+                                            Film &amp; Stage Crew
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input jsf:id="stylist" type="checkbox" jsf:value="#{userController.currentUser.stylist}">
+                                                <!--                                                <f:ajax/>-->
+                                            </input>
+                                            Stylist
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input jsf:id="magazine" type="checkbox" jsf:value="#{userController.currentUser.magazine}">
+                                                <!--                                                <f:ajax/>-->
+                                            </input>
+                                            Magazine
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr/>
+                            <h3>Enter your details</h3>
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label" jsf:for="firstName">First Name</label>
+                                        <input  type="text" class="form-control" jsf:id="firstName" jsf:value="#{userController.currentUser.firstName}">
+                                            <!--                                            <f:ajax/>-->
+                                        </input>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label" jsf:for="middleName">Middle Name</label>
+                                        <input type="text" class="form-control" jsf:id="middleName" jsf:value="#{userController.currentUser.middleName}">
+                                            <!--                                            <f:ajax/>-->
+                                        </input>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label" jsf:for="lastName">Last Name</label>
+                                        <input type="text" class="form-control" jsf:id="lastName" jsf:value="#{userController.currentUser.lastName}"/>                                        
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr/>
+                            <h4>Gender</h4>
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input jsf:id="male" type="checkbox" jsf:value="#{userController.currentUser.gender eq 'Male'}"/>
+                                            Male
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input jsf:id="female" type="checkbox" value="#{userController.currentUser.gender eq 'Female'}"/>
+                                            Female
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr/>
+                            <h4>Birth date</h4>
+
+                            <div class="row form-inline">
+                                <div class="form-group">
+                                    <label jsf:for="birthMonth" class="col-sm-2 control-label">Month</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" jsf:id="birthMonth" jsf:value="#{userController.currentUser.birthMonth}"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label jsf:for="birthYear" class="col-sm-2 control-label">Year</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" jsf:id="birthYear" jsf:value="#{userController.currentUser.birthYear}"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr/>
+                            <div class="row" >
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label" jsf:for="country">Country</label>
+                                        <h:selectOneMenu id="country" class="form-control" value="#{userController.currentUser.country}">
+                                            <f:selectItem itemValue="Nigeria" itemLabel="Nigeria"/>
+                                            <f:selectItem itemValue="Ghana" itemLabel="Ghana"/>
+                                            <f:selectItem itemValue="Togo" itemLabel="Togo"/>
+                                            <f:selectItem itemValue="Liberia" itemLabel="Liberia"/>
+                                        </h:selectOneMenu>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label" jsf:for="state">State</label>
+                                        <h:selectOneMenu id="state" class="form-control" value="#{userController.currentUser.state}">
+                                            <f:selectItem itemValue="Abia" itemLabel="Abia"/>
+                                            <f:selectItem itemValue="Abuja" itemLabel="Abuja"/>
+                                            <f:selectItem itemValue="Nasarawa" itemLabel="Nasarawa"/>
+                                            <f:selectItem itemValue="Lagos" itemLabel="Lagos"/>                                            
+                                        </h:selectOneMenu>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <hr/>
+                            <h3>Sign in details</h3>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group has-feedback">
+                                        <label class="control-label">Username</label>
+                                        <input jsf:id="userName" type="text" class="form-control" jsf:value="#{userController.currentUser.userName}"/>
+                                        <i class="fa fa-user form-control-feedback"></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group has-feedback">
+                                        <label class="control-label">Password</label>
+                                        <input jsf:id="password" type="password" class="form-control" jsf:value="#{userController.currentUser.password}"/>
+                                        <i class="fa fa-lock form-control-feedback"></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group has-feedback">
+                                        <label class="control-label">Email</label>
+                                        <input jsfId="email" type="email" class="form-control" jsf:value="#{userController.currentUser.email}"/>
+                                        <i class="fa fa-envelope-o form-control-feedback"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" value=""/>
+                                    Keep me signed in on this computer
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" value="" />
+                                    I have read and agree with Cast-U <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy</a>
+                                </label>
+                            </div>
+
+                            <button jsf:id="createButton" class="btn btn-group btn-default btn-animated">Register <i class="fa fa-check"></i>
+                                <f:ajax listener="#{userController.create}" event="click"
+                                        execute="acting modeling musician photography tvReality dancing filmStageCrew stylist magazine firstName middleName lastName male female birthMonth birthYear country state userName password email"/>
+                            </button>
+                            <br/>
+                            <h:commandButton value="Register" action="index" class="btn btn-group btn-default btn-animated" >
+                                <f:ajax listener="#{userController.create}" event="click"
+                                        execute="acting modeling musician photography tvReality dancing filmStageCrew stylist magazine firstName middleName lastName male female birthMonth birthYear country state userName password email"/>
+                            </h:commandButton>
+
+                        </h:form>
+
+                    </div>
+                </div>
+                <!-- section end -->
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
