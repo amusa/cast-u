@@ -7,6 +7,8 @@ package com.castu.castu.entity;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -29,7 +31,7 @@ public class User implements Serializable {
     private String firstName;
     private String middleName;
     private String lastName;
-    private String gender;
+    private Gender gender;
     private Integer birthMonth;
     private Integer birthYear;
     private String country;
@@ -102,11 +104,12 @@ public class User implements Serializable {
         this.lastName = lastName;
     }
 
-    public String getGender() {
+    @Enumerated(EnumType.STRING) 
+    public Gender getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(Gender gender) {
         this.gender = gender;
     }
 

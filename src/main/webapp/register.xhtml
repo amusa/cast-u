@@ -159,22 +159,30 @@
                                     <div class="form-group">
                                         <label class="control-label" jsf:for="lastName">Last Name</label>
                                         <input type="text" class="form-control" jsf:id="lastName" jsf:value="#{userController.currentUser.lastName}">
-<!--                                            <f:ajax />-->
+                                            <!--                                            <f:ajax />-->
                                         </input>
                                     </div>
                                 </div>
                             </div>
 
-                            <hr/>
-                            <h4>Gender</h4>
+<!--                            <hr/>
+                            <h4>Gender</h4>-->
 
                             <div class="row">
                                 <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label" jsf:for="country">Gender</label>
+                                        <h:selectOneMenu id="gender" class="form-control" value="#{userController.currentUser.gender}">
+                                            <f:selectItems value="#{userController.genderSelectOne}"/>                                            
+                                        </h:selectOneMenu>
+                                    </div>
+                                </div>
+<!--                                <div class="col-md-4">
                                     <div class="checkbox">
                                         <label>
                                             <h:selectBooleanCheckbox id="male" value="#{userController.currentUser.gender}" converter="maleConverter">
-                                                <!-- <f:ajax/> -->
-                                                
+                                                 <f:ajax/> 
+
                                             </h:selectBooleanCheckbox>
                                             Male
                                         </label>
@@ -184,12 +192,12 @@
                                     <div class="checkbox">
                                         <label>
                                             <input jsf:id="female" type="checkbox" value="#{userController.currentUser.gender}" jsf:converter="femaleConverter">
-                                                <!-- <f:ajax/> -->
+                                                 <f:ajax/> 
                                             </input>
                                             Female
                                         </label>
                                     </div>
-                                </div>
+                                </div>-->
                             </div>
 
                             <hr/>
@@ -286,7 +294,7 @@
                             </div>
 
                             <h:commandLink id="createButton" action="#{userController.create}"  class="btn btn-group btn-default btn-animated">Register <i class="fa fa-check"></i>
-<!--                                <f:ajax  execute="@form" render="msg" event="click"/>                                        -->
+                                <!--                                <f:ajax  execute="@form" render="msg" event="click"/>                                        -->
                             </h:commandLink>
 
                         </h:form>
