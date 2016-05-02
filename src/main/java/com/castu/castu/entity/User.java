@@ -142,76 +142,116 @@ public class User implements Serializable {
         this.state = state;
     }
 
-    public Boolean isActing() {
-        return acting;
-    }
+//    public Boolean isActing() {
+//        return acting;
+//    }
 
     public void setActing(Boolean acting) {
         this.acting = acting;
     }
 
-    public Boolean isPhotography() {
-        return photography;
-    }
+//    public Boolean isPhotography() {
+//        return photography;
+//    }
 
     public void setPhotography(Boolean photography) {
         this.photography = photography;
     }
 
-    public Boolean isFilmStageCrew() {
-        return filmStageCrew;
-    }
+//    public Boolean isFilmStageCrew() {
+//        return filmStageCrew;
+//    }
 
     public void setFilmStageCrew(Boolean filmStageCrew) {
         this.filmStageCrew = filmStageCrew;
     }
 
-    public Boolean isModeling() {
-        return modeling;
-    }
+//    public Boolean isModeling() {
+//        return modeling;
+//    }
 
     public void setModeling(Boolean modeling) {
         this.modeling = modeling;
     }
 
-    public Boolean isTvReality() {
-        return tvReality;
-    }
+//    public Boolean isTvReality() {
+//        return tvReality;
+//    }
 
     public void setTvReality(Boolean tvReality) {
         this.tvReality = tvReality;
     }
 
-    public Boolean isStylist() {
-        return stylist;
-    }
+//    public Boolean isStylist() {
+//        return stylist;
+//    }
 
     public void setStylist(Boolean stylist) {
         this.stylist = stylist;
     }
 
-    public Boolean isMusician() {
-        return musician;
-    }
+//    public Boolean isMusician() {
+//        return musician;
+//    }
 
     public void setMusician(Boolean musician) {
         this.musician = musician;
     }
 
-    public Boolean isDancing() {
-        return dancing;
-    }
+//    public Boolean isDancing() {
+//        return dancing;
+//    }
 
     public void setDancing(Boolean dancing) {
         this.dancing = dancing;
     }
 
-    public Boolean isMagazine() {
-        return magazine;
-    }
+//    public Boolean isMagazine() {
+//        return magazine;
+//    }
 
     public void setMagazine(Boolean magazine) {
         this.magazine = magazine;
+    }
+
+    public Boolean getActing() {
+        return acting;
+    }
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public Boolean getPhotography() {
+        return photography;
+    }
+
+    public Boolean getFilmStageCrew() {
+        return filmStageCrew;
+    }
+
+    public Boolean getModeling() {
+        return modeling;
+    }
+
+    public Boolean getTvReality() {
+        return tvReality;
+    }
+
+    public Boolean getStylist() {
+        return stylist;
+    }
+
+    public Boolean getMusician() {
+        return musician;
+    }
+
+    public Boolean getDancing() {
+        return dancing;
+    }
+
+    public Boolean getMagazine() {
+        return magazine;
     }
     
     

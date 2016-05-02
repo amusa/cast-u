@@ -43,7 +43,7 @@
                                     <div class="checkbox">
                                         <label>
                                             <input jsf:id="acting" type="checkbox" jsf:value="#{userController.currentUser.acting}">
-                                                <!--                                                <f:ajax/>-->
+                                                <!-- <f:ajax/> -->
                                             </input>
                                             Acting
                                         </label>
@@ -53,7 +53,7 @@
                                     <div class="checkbox">
                                         <label>
                                             <input jsf:id="modeling" type="checkbox" jsf:value="#{userController.currentUser.modeling}">
-                                                <!--                                                <f:ajax/>-->
+                                                <!-- <f:ajax/> -->
                                             </input>
                                             Modeling
                                         </label>
@@ -63,7 +63,7 @@
                                     <div class="checkbox">
                                         <label>
                                             <input jsf:id="musician" type="checkbox" jsf:value="#{userController.currentUser.musician}">
-                                                <!--                                                <f:ajax/>-->
+                                                <!-- <f:ajax/> -->
                                             </input>
                                             Musician
                                         </label>
@@ -75,7 +75,7 @@
                                     <div class="checkbox">
                                         <label>
                                             <input jsf:id="photography" type="checkbox" jsf:value="#{userController.currentUser.photography}">
-                                                <!--                                                <f:ajax/>-->
+                                                <!-- <f:ajax/> -->
                                             </input>                                                    
                                             Photography
                                         </label>
@@ -85,7 +85,7 @@
                                     <div class="checkbox">
                                         <label>
                                             <input jsf:id="tvReality" type="checkbox" jsf:value="#{userController.currentUser.tvReality}">
-                                                <!--                                                <f:ajax/>-->
+                                                <!-- <f:ajax/> -->
                                             </input>
                                             TV &amp; Reality
                                         </label>
@@ -95,7 +95,7 @@
                                     <div class="checkbox">
                                         <label>
                                             <input jsf:id="dancing" type="checkbox" jsf:value="#{userController.currentUser.dancing}">
-                                                <!--                                                <f:ajax/>-->
+                                                <!-- <f:ajax/> -->
                                             </input>
                                             Dancing
                                         </label>
@@ -107,7 +107,7 @@
                                     <div class="checkbox">
                                         <label>
                                             <input jsf:id="filmStageCrew" type="checkbox" jsf:value="#{userController.currentUser.filmStageCrew}">
-                                                <!--                                                <f:ajax/>-->
+                                                <!-- <f:ajax/> -->
                                             </input>
                                             Film &amp; Stage Crew
                                         </label>
@@ -117,7 +117,7 @@
                                     <div class="checkbox">
                                         <label>
                                             <input jsf:id="stylist" type="checkbox" jsf:value="#{userController.currentUser.stylist}">
-                                                <!--                                                <f:ajax/>-->
+                                                <!-- <f:ajax/> -->
                                             </input>
                                             Stylist
                                         </label>
@@ -127,7 +127,7 @@
                                     <div class="checkbox">
                                         <label>
                                             <input jsf:id="magazine" type="checkbox" jsf:value="#{userController.currentUser.magazine}">
-                                                <!--                                                <f:ajax/>-->
+                                                <!-- <f:ajax/> -->
                                             </input>
                                             Magazine
                                         </label>
@@ -143,7 +143,7 @@
                                     <div class="form-group">
                                         <label class="control-label" jsf:for="firstName">First Name</label>
                                         <input  type="text" class="form-control" jsf:id="firstName" jsf:value="#{userController.currentUser.firstName}">
-                                            <!--                                            <f:ajax/>-->
+                                            <!-- <f:ajax/> -->
                                         </input>
                                     </div>
                                 </div>
@@ -151,14 +151,16 @@
                                     <div class="form-group">
                                         <label class="control-label" jsf:for="middleName">Middle Name</label>
                                         <input type="text" class="form-control" jsf:id="middleName" jsf:value="#{userController.currentUser.middleName}">
-                                            <!--                                            <f:ajax/>-->
+                                            <!-- <f:ajax/> -->
                                         </input>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="control-label" jsf:for="lastName">Last Name</label>
-                                        <input type="text" class="form-control" jsf:id="lastName" jsf:value="#{userController.currentUser.lastName}"/>                                        
+                                        <input type="text" class="form-control" jsf:id="lastName" jsf:value="#{userController.currentUser.lastName}">
+<!--                                            <f:ajax />-->
+                                        </input>
                                     </div>
                                 </div>
                             </div>
@@ -170,7 +172,10 @@
                                 <div class="col-md-4">
                                     <div class="checkbox">
                                         <label>
-                                            <input jsf:id="male" type="checkbox" jsf:value="#{userController.currentUser.gender eq 'Male'}"/>
+                                            <h:selectBooleanCheckbox id="male" value="#{userController.currentUser.gender}" converter="maleConverter">
+                                                <!-- <f:ajax/> -->
+                                                
+                                            </h:selectBooleanCheckbox>
                                             Male
                                         </label>
                                     </div>
@@ -178,7 +183,9 @@
                                 <div class="col-md-4">
                                     <div class="checkbox">
                                         <label>
-                                            <input jsf:id="female" type="checkbox" value="#{userController.currentUser.gender eq 'Female'}"/>
+                                            <input jsf:id="female" type="checkbox" value="#{userController.currentUser.gender}" jsf:converter="femaleConverter">
+                                                <!-- <f:ajax/> -->
+                                            </input>
                                             Female
                                         </label>
                                     </div>
@@ -192,13 +199,17 @@
                                 <div class="form-group">
                                     <label jsf:for="birthMonth" class="col-sm-2 control-label">Month</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" jsf:id="birthMonth" jsf:value="#{userController.currentUser.birthMonth}"/>
+                                        <input type="text" class="form-control" jsf:id="birthMonth" jsf:value="#{userController.currentUser.birthMonth}">
+                                            <!-- <f:ajax/> -->
+                                        </input>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label jsf:for="birthYear" class="col-sm-2 control-label">Year</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" jsf:id="birthYear" jsf:value="#{userController.currentUser.birthYear}"/>
+                                        <input type="text" class="form-control" jsf:id="birthYear" jsf:value="#{userController.currentUser.birthYear}">
+                                            <!-- <f:ajax/> -->
+                                        </input>
                                     </div>
                                 </div>
                             </div>
@@ -212,6 +223,7 @@
                                             <f:selectItem itemValue="Ghana" itemLabel="Ghana"/>
                                             <f:selectItem itemValue="Togo" itemLabel="Togo"/>
                                             <f:selectItem itemValue="Liberia" itemLabel="Liberia"/>
+                                            <!-- <f:ajax/> -->
                                         </h:selectOneMenu>
                                     </div>
                                 </div>
@@ -222,7 +234,8 @@
                                             <f:selectItem itemValue="Abia" itemLabel="Abia"/>
                                             <f:selectItem itemValue="Abuja" itemLabel="Abuja"/>
                                             <f:selectItem itemValue="Nasarawa" itemLabel="Nasarawa"/>
-                                            <f:selectItem itemValue="Lagos" itemLabel="Lagos"/>                                            
+                                            <f:selectItem itemValue="Lagos" itemLabel="Lagos"/>    
+                                            <!-- <f:ajax/> -->
                                         </h:selectOneMenu>
                                     </div>
                                 </div>
@@ -234,21 +247,27 @@
                                 <div class="col-md-4">
                                     <div class="form-group has-feedback">
                                         <label class="control-label">Username</label>
-                                        <input jsf:id="userName" type="text" class="form-control" jsf:value="#{userController.currentUser.userName}"/>
+                                        <input jsf:id="userName" type="text" class="form-control" jsf:value="#{userController.currentUser.userName}">
+                                            <!-- <f:ajax/> -->
+                                        </input> 
                                         <i class="fa fa-user form-control-feedback"></i>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group has-feedback">
                                         <label class="control-label">Password</label>
-                                        <input jsf:id="password" type="password" class="form-control" jsf:value="#{userController.currentUser.password}"/>
+                                        <input jsf:id="password" type="password" class="form-control" jsf:value="#{userController.currentUser.password}">
+                                            <!-- <f:ajax/> -->
+                                        </input>
                                         <i class="fa fa-lock form-control-feedback"></i>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group has-feedback">
                                         <label class="control-label">Email</label>
-                                        <input jsfId="email" type="email" class="form-control" jsf:value="#{userController.currentUser.email}"/>
+                                        <input jsfId="email" type="email" class="form-control" jsf:value="#{userController.currentUser.email}">
+                                            <!-- <f:ajax/> -->
+                                        </input>
                                         <i class="fa fa-envelope-o form-control-feedback"></i>
                                     </div>
                                 </div>
@@ -266,15 +285,9 @@
                                 </label>
                             </div>
 
-                            <button jsf:id="createButton" class="btn btn-group btn-default btn-animated">Register <i class="fa fa-check"></i>
-                                <f:ajax listener="#{userController.create}" event="click"
-                                        execute="acting modeling musician photography tvReality dancing filmStageCrew stylist magazine firstName middleName lastName male female birthMonth birthYear country state userName password email"/>
-                            </button>
-                            <br/>
-                            <h:commandButton value="Register" action="index" class="btn btn-group btn-default btn-animated" >
-                                <f:ajax listener="#{userController.create}" event="click"
-                                        execute="acting modeling musician photography tvReality dancing filmStageCrew stylist magazine firstName middleName lastName male female birthMonth birthYear country state userName password email"/>
-                            </h:commandButton>
+                            <h:commandLink id="createButton" action="#{userController.create}"  class="btn btn-group btn-default btn-animated">Register <i class="fa fa-check"></i>
+<!--                                <f:ajax  execute="@form" render="msg" event="click"/>                                        -->
+                            </h:commandLink>
 
                         </h:form>
 

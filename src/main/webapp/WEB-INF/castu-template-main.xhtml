@@ -2,7 +2,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
 
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />        
@@ -121,7 +123,11 @@
                                     <!-- ================ -->
                                     <div class="header-top-dropdown text-right">
                                         <div class="btn-group">
-                                            <a href="register.xhtml" class="btn btn-default btn-sm"><i class="fa fa-user pr-10"></i> Register</a>
+                                            <form jsf:id="regform" class="margin-clear">
+                                                <a jsf:id="register" href="register.xhtml" class="btn btn-default btn-sm"><i class="fa fa-user pr-10"></i> Register
+                                                    <f:ajax listener="#{userController.prepareCreate}" event="click" />
+                                                </a>
+                                            </form>
                                         </div>
                                         <div class="btn-group dropdown">
                                             <button type="button" class="btn dropdown-toggle btn-default btn-sm" data-toggle="dropdown"><i class="fa fa-lock pr-10"></i> Login</button>
@@ -241,7 +247,7 @@
 
                                     <!-- logo -->
                                     <div id="logo" class="logo">
-                                        <a href="index.html"><img id="logo_img" src="resources/images/cast-u-logo.png" alt="Cast U"/></a>
+                                        <a href="index.xhtml"><img id="logo_img" src="resources/images/cast-u-logo.png" alt="Cast U"/></a>
                                     </div>
 
                                     <!-- name-and-slogan -->
@@ -598,7 +604,7 @@
             <!-- breadcrumb start -->
             <!-- ================ -->
             <ui:insert name="breadcrumb">
-               
+
             </ui:insert>
             <!-- breadcrumb end -->
             <!-- ================ -->

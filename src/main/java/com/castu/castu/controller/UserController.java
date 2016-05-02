@@ -29,11 +29,10 @@ import javax.faces.convert.FacesConverter;
 @Named(value = "userController")
 @SessionScoped
 public class UserController implements Serializable {
-
+    
     private static final long serialVersionUID = 1373112320130390435L;
     private static final Logger LOG = Logger.getLogger(UserController.class.getName());
     
-
     @EJB
     private UserBean userBean;
     private User currentUser;
@@ -44,55 +43,59 @@ public class UserController implements Serializable {
      */
     public UserController() {
     }
-
+    
     public User getCurrentUser() {
         return currentUser;
     }
-
+    
     public void setCurrentUser(User currentUser) {
         this.currentUser = currentUser;
     }
-
+    
     protected void setEmbeddableKeys() {
     }
-
+    
     protected void initializeEmbeddableKey() {
     }
-
+    
     private UserBean getBean() {
         return userBean;
     }
-
+    
     public void prepareCreate() {
-        LOG.log(Level.INFO,"Preparing create...");
         currentUser = new User();
+        LOG.log(Level.INFO, "Preparing to create user {0}...", currentUser);
         initializeEmbeddableKey();
-        //return currentUser;
     }
-
+    
     public void cancel() {
         users = null;
         currentUser = null;
     }
-
-    public void create() {
-        LOG.log(Level.INFO,"Creating user {0}...", currentUser);
+    
+    public String registerNext() {
+        LOG.log(Level.INFO, "Returning next page...");
+        return "registration-complete?faces-redirect=true";
+    }
+    
+    public String create() {
+        LOG.log(Level.INFO, "Creating user {0}...", currentUser);
         persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("UserCreated"));
         if (!JsfUtil.isValidationFailed()) {
             users = null;    // Invalidate list of items to trigger re-query.
         }
-        //return "index";
+        return "registration-complete";
     }
-
+    
     public void update() {
         persist(PersistAction.UPDATE, ResourceBundle.getBundle("/Bundle").getString("UserUpdated"));
     }
-
+    
     public void destroy(User user) {
         setCurrentUser(user);
         destroy();
     }
-
+    
     public void destroy() {
         persist(PersistAction.DELETE, ResourceBundle.getBundle("/Bundle").getString("UserDeleted"));
         if (!JsfUtil.isValidationFailed()) {
@@ -100,14 +103,14 @@ public class UserController implements Serializable {
             users = null;    // Invalidate list of items to trigger re-query.
         }
     }
-
+    
     public List<User> getUsers() {
         if (users == null) {
             users = getBean().findAll();
         }
         return users;
     }
-
+    
     private void persist(PersistAction persistAction, String successMessage) {
         if (currentUser != null) {
             setEmbeddableKeys();
@@ -135,22 +138,22 @@ public class UserController implements Serializable {
             }
         }
     }
-
+    
     public User getCompany(int id) {
         return getBean().find(id);
     }
-
+    
     public List<User> getItemsAvailableSelectMany() {
         return getBean().findAll();
     }
-
+    
     public List<User> getItemsAvailableSelectOne() {
         return getBean().findAll();
     }
-
+    
     @FacesConverter(forClass = User.class)
     public static class UserControllerConverter implements Converter {
-
+        
         @Override
         public Object getAsObject(FacesContext facesContext, UIComponent component, String value) {
             if (value == null || value.length() == 0) {
@@ -160,19 +163,19 @@ public class UserController implements Serializable {
                     getValue(facesContext.getELContext(), null, "userController");
             return controller.getCompany(getKey(value));
         }
-
+        
         int getKey(String value) {
             int key;
             key = Integer.parseInt(value);
             return key;
         }
-
+        
         String getStringKey(long value) {
             StringBuilder sb = new StringBuilder();
             sb.append(value);
             return sb.toString();
         }
-
+        
         @Override
         public String getAsString(FacesContext facesContext, UIComponent component, Object object) {
             if (object == null) {
@@ -186,6 +189,6 @@ public class UserController implements Serializable {
                 return null;
             }
         }
-
+        
     }
 }
