@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.ejb.EJBException;
 import javax.faces.component.UIComponent;
@@ -24,6 +25,16 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 import javax.faces.model.SelectItem;
+import javax.inject.Inject;
+import org.picketlink.idm.IdentityManager;
+import org.picketlink.idm.PartitionManager;
+import org.picketlink.idm.RelationshipManager;
+import org.picketlink.idm.credential.Password;
+import static org.picketlink.idm.model.basic.BasicModel.addToGroup;
+import static org.picketlink.idm.model.basic.BasicModel.grantGroupRole;
+import static org.picketlink.idm.model.basic.BasicModel.grantRole;
+import org.picketlink.idm.model.basic.Group;
+import org.picketlink.idm.model.basic.Role;
 
 /**
  *
@@ -40,6 +51,9 @@ public class UserController implements Serializable {
     private UserBean userBean;
     private User currentUser;
     private List<User> users;
+
+    @Inject
+    private PartitionManager partitionManager;
 
     /**
      * Creates a new instance of UserController
@@ -120,6 +134,7 @@ public class UserController implements Serializable {
             try {
                 if (persistAction != PersistAction.DELETE) {
                     getBean().edit(currentUser);
+                    createUserIdentity();
                 } else {
                     getBean().remove(currentUser);
                 }
@@ -140,6 +155,27 @@ public class UserController implements Serializable {
                 JsfUtil.addErrorMessage(ex, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
             }
         }
+    }
+
+    private void createUserIdentity() {
+        org.picketlink.idm.model.basic.User us = new org.picketlink.idm.model.basic.User(currentUser.getUserName());
+        us.setEmail(currentUser.getEmail());
+        us.setFirstName(currentUser.getFirstName());
+        us.setLastName(currentUser.getLastName());
+
+        IdentityManager identityManager = this.partitionManager.createIdentityManager();
+
+        identityManager.add(us);
+        identityManager.updateCredential(us, new Password(currentUser.getPassword()));
+
+        // Create role "user"
+        Role user = new Role("user");
+        identityManager.add(user);
+
+        RelationshipManager relationshipManager = this.partitionManager.createRelationshipManager();
+
+        // Grant "user" application role
+        grantRole(relationshipManager, us, user);
     }
 
     public User getCompany(int id) {

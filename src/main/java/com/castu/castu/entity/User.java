@@ -13,6 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 /**
  *
@@ -64,6 +65,7 @@ public class User implements Serializable {
         this.email = email;
     }
 
+    @Transient
     public String getUserName() {
         return userName;
     }
@@ -71,7 +73,8 @@ public class User implements Serializable {
     public void setUserName(String userName) {
         this.userName = userName;
     }
-        
+     
+    @Transient
     public String getPassword() {
         return password;
     }
@@ -80,6 +83,7 @@ public class User implements Serializable {
         this.password = password;
     }
 
+    
     public String getFirstName() {
         return firstName;
     }
