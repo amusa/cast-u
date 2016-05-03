@@ -11,10 +11,11 @@ import javax.persistence.EntityManager;
 /**
  *
  * @author 18359
+ * @param <T>
  */
 public abstract class AbstractBean<T> {
 
-    private Class<T> entityClass;
+    private final Class<T> entityClass;
 
     public AbstractBean(Class<T> entityClass) {
         this.entityClass = entityClass;
