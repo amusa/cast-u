@@ -44,7 +44,7 @@
                             <h3>Application notifications</h3>
                             <h4>Email addresses:</h4>
                             <div class="row">
-                                <div class="col-md-2">
+                                <div class="col-md-6">
                                     <div class="radio">
                                         <label>
                                             <input jsf:id="defaultEmail" type="radio" >
@@ -82,7 +82,7 @@
                                     </div>
                                     <div class="radio">
                                         <label>
-                                            <input jsf:id="summaryEmail" type="checkbox" >
+                                            <input jsf:id="summaryEmail" type="radio" >
 
                                             </input>
                                             Email me a daily summary email
@@ -98,7 +98,7 @@
 
                                         </button>
 
-                                        <button id="nextButton" class="btn btn-group btn-default btn-animated">Next <i class="fa fa-angle-double-right"></i>
+                                        <button id="nextButton" jsf:outcome="casting-confirmation"  class="btn btn-group btn-default btn-animated">Preview my casting call <i class="fa fa-angle-double-right"></i>
 
                                         </button>
                                     </div>
