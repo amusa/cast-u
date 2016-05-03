@@ -15,7 +15,7 @@ import javax.persistence.PersistenceContext;
  * @author 18359
  */
 @Stateless
-public class CastCallBean extends AbstractBean<CastCall> {
+public class CastBean extends AbstractBean<CastCall> {
 
     @PersistenceContext(unitName = "castuPU")
     private EntityManager em;
@@ -25,7 +25,7 @@ public class CastCallBean extends AbstractBean<CastCall> {
         return em;
     }
 
-    public CastCallBean() {
+    public CastBean() {
         super(CastCall.class);
     }
     
