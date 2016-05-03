@@ -1,0 +1,205 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./WEB-INF/castu-template-main.xhtml">
+
+            <ui:define name="title">
+                Title
+            </ui:define>
+
+            <ui:define name="header-top">
+
+            </ui:define>
+
+            <ui:define name="header-dropdown">
+
+            </ui:define>
+
+            <ui:define name="header-nav">
+
+            </ui:define>
+
+            <ui:define name="banner">
+
+            </ui:define>
+
+            <ui:define name="breadcrumb">
+
+            </ui:define>
+
+            <ui:define name="main-content">
+                <!-- section start -->
+                <!-- ================ -->
+                <div class="section ">
+                    <div class="container">
+                        <h2>Role Details</h2>                        
+                        <h:form id="UserForm" role="form">
+                            <h4>Role Info</h4>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label">Role title</label>
+                                        <small>Describe one role only, you can add more roles on the next step.</small>
+                                        <input  type="text" class="form-control" jsf:id="roleTitle">
+                                            <!-- <f:ajax/> -->
+                                        </input>
+                                    </div>
+                                </div>                                
+                            </div>
+                            <hr/>
+                            <h4>Gender and age</h4>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input jsf:id="male" type="checkbox" >
+
+                                            </input>
+                                            Male
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input jsf:id="female" type="checkbox" >
+
+                                            </input>
+                                            Female
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <!--                                        <label class="control-label" jsf:for="category">Category</label>-->
+                                        <select class="form-control">	
+                                            <option value="0">0</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                            <option value="13">13</option>
+                                            <option value="14">14</option>
+                                            <option value="15">15</option>
+                                            <option value="16">16</option>
+                                            <option value="17">17</option>
+                                            <option value="18">18</option>
+                                            <option value="19">19</option>
+                                            <option value="20">20</option>
+                                            <option value="21">21</option>
+                                            <option value="22">22</option>
+                                            <option value="23">23</option>
+                                            <option value="24">24</option>
+                                            <option value="25">25</option>
+                                            <option value="26">26</option>
+                                            <option value="27">27</option>
+                                            <option value="28">28</option>
+                                            <option value="29">29</option>
+                                            <option value="30">30</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <!--                                        <label class="control-label" jsf:for="category">Category</label>-->
+                                        <select class="form-control">	
+                                            <option value="0">0</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                            <option value="13">13</option>
+                                            <option value="14">14</option>
+                                            <option value="15">15</option>
+                                            <option value="16">16</option>
+                                            <option value="17">17</option>
+                                            <option value="18">18</option>
+                                            <option value="19">19</option>
+                                            <option value="20">20</option>
+                                            <option value="21">21</option>
+                                            <option value="22">22</option>
+                                            <option value="23">23</option>
+                                            <option value="24">24</option>
+                                            <option value="25">25</option>
+                                            <option value="26">26</option>
+                                            <option value="27">27</option>
+                                            <option value="28">28</option>
+                                            <option value="29">29</option>
+                                            <option value="30">30</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr/>
+                            <h4>Additional info</h4>
+                            <small>Include as much information as you can (e.g. character traits and requirements) to receive more relevant applications.
+                                Please be as detailed as possible.</small>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <h:inputTextarea id="description" rows="4" class="form-control" >
+
+                                        </h:inputTextarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <small><strong>500</strong> characters remaining</small>
+                            <hr/>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <h:commandLink id="addRole" class="btn btn-group btn-default btn-animated"><i class="fa fa-plus-circle"></i> Add another role
+
+                                        </h:commandLink>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-offset-5 col-md-7 inline">
+                                    <div class="form-group">
+                                        <button id="backButton" jsf:outcome="castcall" class="btn btn-group btn-animated"><i class="fa fa-angle-double-left"></i> Back
+
+                                        </button>
+                                        <button id="nextButton" jsf:outcome="additionalInfo" class="btn btn-group btn-default btn-animated">Next <i class="fa fa-angle-double-right"></i>
+
+                                        </button>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </h:form>
+
+                    </div>
+                </div>
+                <!-- section end -->
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

@@ -67,112 +67,114 @@
 
             <!-- header-container start -->
             <div class="header-container">
-
-                <!-- header-top start -->
-                <!-- classes:  -->
-                <!-- "dark": dark version of header top e.g. class="header-top dark" -->
-                <!-- "colored": colored version of header top e.g. class="header-top colored" -->
-                <!-- ================ -->
-                <div class="header-top dark ">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-xs-3 col-sm-6 col-md-9">
-                                <!-- header-top-first start -->
-                                <!-- ================ -->
-                                <div class="header-top-first clearfix">
-                                    <ul class="social-links circle small clearfix hidden-xs">
-                                        <li class="twitter"><a target="_blank" href="http://www.twitter.com"><i class="fa fa-twitter"></i></a></li>
-                                        <li class="skype"><a target="_blank" href="http://www.skype.com"><i class="fa fa-skype"></i></a></li>
-                                        <li class="linkedin"><a target="_blank" href="http://www.linkedin.com"><i class="fa fa-linkedin"></i></a></li>
-                                        <li class="googleplus"><a target="_blank" href="http://plus.google.com"><i class="fa fa-google-plus"></i></a></li>
-                                        <li class="youtube"><a target="_blank" href="http://www.youtube.com"><i class="fa fa-youtube-play"></i></a></li>
-                                        <li class="flickr"><a target="_blank" href="http://www.flickr.com"><i class="fa fa-flickr"></i></a></li>
-                                        <li class="facebook"><a target="_blank" href="http://www.facebook.com"><i class="fa fa-facebook"></i></a></li>
-                                        <li class="pinterest"><a target="_blank" href="http://www.pinterest.com"><i class="fa fa-pinterest"></i></a></li>
-                                    </ul>
-                                    <div class="social-links hidden-lg hidden-md hidden-sm circle small">
-                                        <div class="btn-group dropdown">
-                                            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"><i class="fa fa-share-alt"></i></button>
-                                            <ul class="dropdown-menu dropdown-animation">
-                                                <li class="twitter"><a target="_blank" href="http://www.twitter.com"><i class="fa fa-twitter"></i></a></li>
-                                                <li class="skype"><a target="_blank" href="http://www.skype.com"><i class="fa fa-skype"></i></a></li>
-                                                <li class="linkedin"><a target="_blank" href="http://www.linkedin.com"><i class="fa fa-linkedin"></i></a></li>
-                                                <li class="googleplus"><a target="_blank" href="http://plus.google.com"><i class="fa fa-google-plus"></i></a></li>
-                                                <li class="youtube"><a target="_blank" href="http://www.youtube.com"><i class="fa fa-youtube-play"></i></a></li>
-                                                <li class="flickr"><a target="_blank" href="http://www.flickr.com"><i class="fa fa-flickr"></i></a></li>
-                                                <li class="facebook"><a target="_blank" href="http://www.facebook.com"><i class="fa fa-facebook"></i></a></li>
-                                                <li class="pinterest"><a target="_blank" href="http://www.pinterest.com"><i class="fa fa-pinterest"></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <ul class="list-inline hidden-sm hidden-xs">
-                                        <li><i class="fa fa-map-marker pr-5 pl-10"></i>One Infinity Loop Av, Tk 123456</li>
-                                        <li><i class="fa fa-phone pr-5 pl-10"></i>+234 809 111 2567</li>
-                                        <li><i class="fa fa-envelope-o pr-5 pl-10"></i> info@cast-u.com</li>
-                                    </ul>
-                                </div>
-                                <!-- header-top-first end -->
-                            </div>
-                            <div class="col-xs-9 col-sm-6 col-md-3">
-
-                                <!-- header-top-second start -->
-                                <!-- ================ -->
-                                <div id="header-top-second"  class="clearfix">
-
-                                    <!-- header top dropdowns start -->
+                <ui:insert name="header-top">
+                    <!-- header-top start -->
+                    <!-- classes:  -->
+                    <!-- "dark": dark version of header top e.g. class="header-top dark" -->
+                    <!-- "colored": colored version of header top e.g. class="header-top colored" -->
+                    <!-- ================ -->
+                    <div class="header-top dark ">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-xs-3 col-sm-6 col-md-9">
+                                    <!-- header-top-first start -->
                                     <!-- ================ -->
-                                    <div class="header-top-dropdown text-right">
-                                        <div class="btn-group">
-                                            <form jsf:id="regform" class="margin-clear">
-                                                <a jsf:id="register" href="register.xhtml" class="btn btn-default btn-sm"><i class="fa fa-user pr-10"></i> Register
-                                                    <f:ajax listener="#{userController.prepareCreate}" event="click" />
-                                                </a>
-                                            </form>
+                                    <div class="header-top-first clearfix">
+                                        <ul class="social-links circle small clearfix hidden-xs">
+                                            <li class="twitter"><a target="_blank" href="http://www.twitter.com"><i class="fa fa-twitter"></i></a></li>
+                                            <li class="skype"><a target="_blank" href="http://www.skype.com"><i class="fa fa-skype"></i></a></li>
+                                            <li class="linkedin"><a target="_blank" href="http://www.linkedin.com"><i class="fa fa-linkedin"></i></a></li>
+                                            <li class="googleplus"><a target="_blank" href="http://plus.google.com"><i class="fa fa-google-plus"></i></a></li>
+                                            <li class="youtube"><a target="_blank" href="http://www.youtube.com"><i class="fa fa-youtube-play"></i></a></li>
+                                            <li class="flickr"><a target="_blank" href="http://www.flickr.com"><i class="fa fa-flickr"></i></a></li>
+                                            <li class="facebook"><a target="_blank" href="http://www.facebook.com"><i class="fa fa-facebook"></i></a></li>
+                                            <li class="pinterest"><a target="_blank" href="http://www.pinterest.com"><i class="fa fa-pinterest"></i></a></li>
+                                        </ul>
+                                        <div class="social-links hidden-lg hidden-md hidden-sm circle small">
+                                            <div class="btn-group dropdown">
+                                                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"><i class="fa fa-share-alt"></i></button>
+                                                <ul class="dropdown-menu dropdown-animation">
+                                                    <li class="twitter"><a target="_blank" href="http://www.twitter.com"><i class="fa fa-twitter"></i></a></li>
+                                                    <li class="skype"><a target="_blank" href="http://www.skype.com"><i class="fa fa-skype"></i></a></li>
+                                                    <li class="linkedin"><a target="_blank" href="http://www.linkedin.com"><i class="fa fa-linkedin"></i></a></li>
+                                                    <li class="googleplus"><a target="_blank" href="http://plus.google.com"><i class="fa fa-google-plus"></i></a></li>
+                                                    <li class="youtube"><a target="_blank" href="http://www.youtube.com"><i class="fa fa-youtube-play"></i></a></li>
+                                                    <li class="flickr"><a target="_blank" href="http://www.flickr.com"><i class="fa fa-flickr"></i></a></li>
+                                                    <li class="facebook"><a target="_blank" href="http://www.facebook.com"><i class="fa fa-facebook"></i></a></li>
+                                                    <li class="pinterest"><a target="_blank" href="http://www.pinterest.com"><i class="fa fa-pinterest"></i></a></li>
+                                                </ul>
+                                            </div>
                                         </div>
-                                        <div class="btn-group dropdown">
-                                            <button type="button" class="btn dropdown-toggle btn-default btn-sm" data-toggle="dropdown"><i class="fa fa-lock pr-10"></i> Login</button>
-                                            <ul class="dropdown-menu dropdown-menu-right dropdown-animation">
-                                                <li>
-                                                    <form jsf:id="loginform" class="login-form margin-clear">
-                                                        <div class="form-group has-feedback">
-                                                            <label class="control-label">Username</label>
-                                                            <input jsf:id="username" jsf:value="#{loginCredentials.userId}" type="text" class="form-control" placeholder=""/>
-                                                            <i class="fa fa-user form-control-feedback"></i>
-                                                        </div>
-                                                        <div class="form-group has-feedback">
-                                                            <label class="control-label">Password</label>
-                                                            <input jsf:id="pwd" jsf:value="#{loginCredentials.password}" type="password" class="form-control" placeholder=""/>
-                                                            <i class="fa fa-lock form-control-feedback"></i>
-                                                        </div>
-                                                        <button jsf:action="#{loginController.login}" type="submit" class="btn btn-gray btn-sm">Log In</button>
-                                                        <span class="pl-5 pr-5">or</span>
-                                                        <button jsf:id="registerButton" jsf:outcome="register" type="submit" class="btn btn-default btn-sm">Register
-                                                            <f:ajax listener="#{userController.prepareCreate}" event="click" />
-                                                        </button>
-                                                        <ul>
-                                                            <li><a href="#">Forgot your password?</a></li>
-                                                        </ul>
-                                                        <span class="text-center">Login with</span>
-                                                        <ul class="social-links circle small colored clearfix">
-                                                            <li class="facebook"><a target="_blank" href="http://www.facebook.com"><i class="fa fa-facebook"></i></a></li>
-                                                            <li class="twitter"><a target="_blank" href="http://www.twitter.com"><i class="fa fa-twitter"></i></a></li>
-                                                            <li class="googleplus"><a target="_blank" href="http://plus.google.com"><i class="fa fa-google-plus"></i></a></li>
-                                                        </ul>
-                                                    </form>
-                                                </li>
-                                            </ul>
-                                        </div>
+                                        <ul class="list-inline hidden-sm hidden-xs">
+                                            <li><i class="fa fa-map-marker pr-5 pl-10"></i>One Infinity Loop Av, Tk 123456</li>
+                                            <li><i class="fa fa-phone pr-5 pl-10"></i>+234 809 111 2567</li>
+                                            <li><i class="fa fa-envelope-o pr-5 pl-10"></i> info@cast-u.com</li>
+                                        </ul>
                                     </div>
-                                    <!--  header top dropdowns end -->
+                                    <!-- header-top-first end -->
                                 </div>
-                                <!-- header-top-second end -->
+                                <div class="col-xs-9 col-sm-6 col-md-3">
+
+                                    <!-- header-top-second start -->
+                                    <!-- ================ -->
+                                    <div id="header-top-second"  class="clearfix">
+
+                                        <!-- header top dropdowns start -->
+                                        <!-- ================ -->
+                                        <div class="header-top-dropdown text-right">
+                                            <div class="btn-group">
+                                                <form jsf:id="regform" class="margin-clear">
+                                                    <a jsf:id="register" href="register.xhtml" class="btn btn-default btn-sm"><i class="fa fa-user pr-10"></i> Register
+                                                        <f:ajax listener="#{userController.prepareCreate}" event="click" />
+                                                    </a>
+                                                </form>
+                                            </div>
+                                            <div class="btn-group dropdown">
+                                                <button type="button" class="btn dropdown-toggle btn-default btn-sm" data-toggle="dropdown"><i class="fa fa-lock pr-10"></i> Login</button>
+                                                <ul class="dropdown-menu dropdown-menu-right dropdown-animation">
+                                                    <li>
+                                                        <form jsf:id="loginform" class="login-form margin-clear">
+                                                            <div class="form-group has-feedback">
+                                                                <label class="control-label">Username</label>
+                                                                <input jsf:id="username" jsf:value="#{loginCredentials.userId}" type="text" class="form-control" placeholder=""/>
+                                                                <i class="fa fa-user form-control-feedback"></i>
+                                                            </div>
+                                                            <div class="form-group has-feedback">
+                                                                <label class="control-label">Password</label>
+                                                                <input jsf:id="pwd" jsf:value="#{loginCredentials.password}" type="password" class="form-control" placeholder=""/>
+                                                                <i class="fa fa-lock form-control-feedback"></i>
+                                                            </div>
+                                                            <button jsf:action="#{loginController.login}" type="submit" class="btn btn-gray btn-sm">Log In</button>
+                                                            <span class="pl-5 pr-5">or</span>
+                                                            <button jsf:id="registerButton" jsf:outcome="register" type="submit" class="btn btn-default btn-sm">Register
+                                                                <f:ajax listener="#{userController.prepareCreate}" event="click" />
+                                                            </button>
+                                                            <ul>
+                                                                <li><a href="#">Forgot your password?</a></li>
+                                                            </ul>
+                                                            <span class="text-center">Login with</span>
+                                                            <ul class="social-links circle small colored clearfix">
+                                                                <li class="facebook"><a target="_blank" href="http://www.facebook.com"><i class="fa fa-facebook"></i></a></li>
+                                                                <li class="twitter"><a target="_blank" href="http://www.twitter.com"><i class="fa fa-twitter"></i></a></li>
+                                                                <li class="googleplus"><a target="_blank" href="http://plus.google.com"><i class="fa fa-google-plus"></i></a></li>
+                                                            </ul>
+                                                        </form>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <!--  header top dropdowns end -->
+                                    </div>
+                                    <!-- header-top-second end -->
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <!-- header-top end -->
+                    <!-- header-top end --> 
+                </ui:insert>
 
                 <!-- header start -->
+
                 <!-- classes:  -->
                 <!-- "fixed": enables fixed navigation mode (sticky menu) e.g. class="header fixed clearfix" -->
                 <!-- "dark": dark version of header e.g. class="header dark clearfix" -->
@@ -186,72 +188,76 @@
                             <div class="col-md-3 ">
                                 <!-- header-left start -->
                                 <!-- ================ -->
+
                                 <div class="header-left clearfix">
 
                                     <!-- header dropdown buttons -->
-                                    <div class="header-dropdown-buttons visible-xs">
-                                        <div class="btn-group dropdown">
-                                            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"><i class="icon-search"></i></button>
-                                            <ul class="dropdown-menu dropdown-menu-right dropdown-animation">
-                                                <li>
-                                                    <form role="search" class="search-box margin-clear">
-                                                        <div class="form-group has-feedback">
-                                                            <input type="text" class="form-control" placeholder="Search"/>
-                                                            <i class="icon-search form-control-feedback"></i>
+                                    <ui:insert name="header-dropdown">
+                                        <div class="header-dropdown-buttons visible-xs">
+                                            <div class="btn-group dropdown">
+                                                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"><i class="icon-search"></i></button>
+                                                <ul class="dropdown-menu dropdown-menu-right dropdown-animation">
+                                                    <li>
+                                                        <form role="search" class="search-box margin-clear">
+                                                            <div class="form-group has-feedback">
+                                                                <input type="text" class="form-control" placeholder="Search"/>
+                                                                <i class="icon-search form-control-feedback"></i>
+                                                            </div>
+                                                        </form>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="btn-group dropdown">
+                                                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"><i class="icon-basket-1"></i><span class="cart-count default-bg">8</span></button>
+                                                <ul class="dropdown-menu dropdown-menu-right dropdown-animation cart">
+                                                    <li>
+                                                        <table class="table table-hover">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th class="quantity">QTY</th>
+                                                                    <th class="product">Product</th>
+                                                                    <th class="amount">Subtotal</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td class="quantity">2 x</td>
+                                                                    <td class="product"><a href="shop-product.html">Android 4.4 Smartphone</a><span class="small">4.7" Dual Core 1GB</span></td>
+                                                                    <td class="amount">$199.00</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="quantity">3 x</td>
+                                                                    <td class="product"><a href="shop-product.html">Android 4.2 Tablet</a><span class="small">7.3" Quad Core 2GB</span></td>
+                                                                    <td class="amount">$299.00</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="quantity">3 x</td>
+                                                                    <td class="product"><a href="shop-product.html">Desktop PC</a><span class="small">Quad Core 3.2MHz, 8GB RAM, 1TB Hard Disk</span></td>
+                                                                    <td class="amount">$1499.00</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="total-quantity" colspan="2">Total 8 Items</td>
+                                                                    <td class="total-amount">$1997.00</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                        <div class="panel-body text-right">
+                                                            <a href="shop-cart.html" class="btn btn-group btn-gray btn-sm">View Cart</a>
+                                                            <a href="shop-checkout.html" class="btn btn-group btn-gray btn-sm">Checkout</a>
                                                         </div>
-                                                    </form>
-                                                </li>
-                                            </ul>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </div>
-                                        <div class="btn-group dropdown">
-                                            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"><i class="icon-basket-1"></i><span class="cart-count default-bg">8</span></button>
-                                            <ul class="dropdown-menu dropdown-menu-right dropdown-animation cart">
-                                                <li>
-                                                    <table class="table table-hover">
-                                                        <thead>
-                                                            <tr>
-                                                                <th class="quantity">QTY</th>
-                                                                <th class="product">Product</th>
-                                                                <th class="amount">Subtotal</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td class="quantity">2 x</td>
-                                                                <td class="product"><a href="shop-product.html">Android 4.4 Smartphone</a><span class="small">4.7" Dual Core 1GB</span></td>
-                                                                <td class="amount">$199.00</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="quantity">3 x</td>
-                                                                <td class="product"><a href="shop-product.html">Android 4.2 Tablet</a><span class="small">7.3" Quad Core 2GB</span></td>
-                                                                <td class="amount">$299.00</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="quantity">3 x</td>
-                                                                <td class="product"><a href="shop-product.html">Desktop PC</a><span class="small">Quad Core 3.2MHz, 8GB RAM, 1TB Hard Disk</span></td>
-                                                                <td class="amount">$1499.00</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="total-quantity" colspan="2">Total 8 Items</td>
-                                                                <td class="total-amount">$1997.00</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                    <div class="panel-body text-right">
-                                                        <a href="shop-cart.html" class="btn btn-group btn-gray btn-sm">View Cart</a>
-                                                        <a href="shop-checkout.html" class="btn btn-group btn-gray btn-sm">Checkout</a>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
+                                    </ui:insert>
                                     <!-- header dropdown buttons end-->
 
                                     <!-- logo -->
-                                    <div id="logo" class="logo">
-                                        <a href="index.xhtml"><img id="logo_img" src="resources/images/cast-u-logo.png" alt="Cast U"/></a>
-                                    </div>
-
+                                    <ui:insert name="logo">
+                                        <div id="logo" class="logo">
+                                            <a href="index.xhtml"><img id="logo_img" src="resources/images/cast-u-logo.png" alt="Cast U"/></a>
+                                        </div>
+                                    </ui:insert>
                                     <!-- name-and-slogan -->
                                     <!--
                                                                                                             <div class="site-slogan">
@@ -263,337 +269,341 @@
                                 <!-- header-left end -->
 
                             </div>
-                            <div class="col-md-9">
+                            <ui:insert name="header-nav">
+                                <div class="col-md-9">
 
-                                <!-- header-right start -->
-                                <!-- ================ -->
-                                <div class="header-right clearfix">
-
-                                    <!-- main-navigation start -->
-                                    <!-- classes: -->
-                                    <!-- "onclick": Makes the dropdowns open on click, this the default bootstrap behavior e.g. class="main-navigation onclick" -->
-                                    <!-- "animated": Enables animations on dropdowns opening e.g. class="main-navigation animated" -->
-                                    <!-- "with-dropdown-buttons": Mandatory class that adds extra space, to the main navigation, for the search and cart dropdowns -->
+                                    <!-- header-right start -->
                                     <!-- ================ -->
-                                    <div class="main-navigation  animated with-dropdown-buttons">
+                                    <div class="header-right clearfix">
 
-                                        <!-- navbar start -->
+                                        <!-- main-navigation start -->
+                                        <!-- classes: -->
+                                        <!-- "onclick": Makes the dropdowns open on click, this the default bootstrap behavior e.g. class="main-navigation onclick" -->
+                                        <!-- "animated": Enables animations on dropdowns opening e.g. class="main-navigation animated" -->
+                                        <!-- "with-dropdown-buttons": Mandatory class that adds extra space, to the main navigation, for the search and cart dropdowns -->
                                         <!-- ================ -->
-                                        <nav class="navbar navbar-default" role="navigation">
-                                            <div class="container-fluid">
+                                        <div class="main-navigation  animated with-dropdown-buttons">
 
-                                                <!-- Toggle get grouped for better mobile display -->
-                                                <div class="navbar-header">
-                                                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
-                                                        <span class="sr-only">Toggle navigation</span>
-                                                        <span class="icon-bar"></span>
-                                                        <span class="icon-bar"></span>
-                                                        <span class="icon-bar"></span>
-                                                    </button>
+                                            <!-- navbar start -->
+                                            <!-- ================ -->
+                                            <nav class="navbar navbar-default" role="navigation">
+                                                <div class="container-fluid">
 
-                                                </div>
+                                                    <!-- Toggle get grouped for better mobile display -->
+                                                    <div class="navbar-header">
+                                                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+                                                            <span class="sr-only">Toggle navigation</span>
+                                                            <span class="icon-bar"></span>
+                                                            <span class="icon-bar"></span>
+                                                            <span class="icon-bar"></span>
+                                                        </button>
 
-                                                <!-- Collect the nav links, forms, and other content for toggling -->
-                                                <!-- REMOVED -->
-                                                <div class="collapse navbar-collapse" id="navbar-collapse-1">
-                                                    <!-- main-menu -->
-                                                    <ul class="nav navbar-nav ">
-                                                        <!-- mega-menu start -->
-                                                        <li class="dropdown active mega-menu">
-                                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Castings &amp; Auditions</a>
-                                                            <ul class="dropdown-menu">
-                                                                <li>
-                                                                    <div class="row">
-                                                                        <div class="col-lg-8 col-md-9">
-                                                                            <h4 class="title">Jobs</h4>
-                                                                            <div class="row">
-                                                                                <div class="col-sm-4">
-                                                                                    <div class="divider"></div>
-                                                                                    <ul class="menu">
-                                                                                        <li ><a href="page-about.html"><i class="fa fa-angle-right"></i>Acting &amp; Extras Jobs</a></li>
-                                                                                        <li ><a href="page-about-2.html"><i class="fa fa-angle-right"></i>Music Jobs</a></li>
-                                                                                        <li ><a href="page-about-3.html"><i class="fa fa-angle-right"></i>Film &amp; Stage Crew Jobs</a></li>
-                                                                                        <li ><a href="page-about-4.html"><i class="fa fa-angle-right"></i>Dance Jobs</a></li>
-                                                                                        <li ><a href="page-about-me.html"><i class="fa fa-angle-right"></i>About Me</a></li>                                   
-                                                                                    </ul>
+                                                    </div>
+
+                                                    <!-- Collect the nav links, forms, and other content for toggling -->
+                                                    <!-- REMOVED -->
+                                                    <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                                                        <!-- main-menu -->
+                                                        <ul class="nav navbar-nav ">
+                                                            <!-- mega-menu start -->
+                                                            <li class="dropdown active mega-menu">
+                                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Castings &amp; Auditions</a>
+                                                                <ul class="dropdown-menu">
+                                                                    <li>
+                                                                        <div class="row">
+                                                                            <div class="col-lg-8 col-md-9">
+                                                                                <h4 class="title">Jobs</h4>
+                                                                                <div class="row">
+                                                                                    <div class="col-sm-4">
+                                                                                        <div class="divider"></div>
+                                                                                        <ul class="menu">
+                                                                                            <li ><a href="page-about.html"><i class="fa fa-angle-right"></i>Acting &amp; Extras Jobs</a></li>
+                                                                                            <li ><a href="page-about-2.html"><i class="fa fa-angle-right"></i>Music Jobs</a></li>
+                                                                                            <li ><a href="page-about-3.html"><i class="fa fa-angle-right"></i>Film &amp; Stage Crew Jobs</a></li>
+                                                                                            <li ><a href="page-about-4.html"><i class="fa fa-angle-right"></i>Dance Jobs</a></li>
+                                                                                            <li ><a href="page-about-me.html"><i class="fa fa-angle-right"></i>About Me</a></li>                                   
+                                                                                        </ul>
+                                                                                    </div>
+                                                                                    <div class="col-sm-4">
+                                                                                        <div class="divider"></div>
+                                                                                        <ul class="menu">
+                                                                                            <li ><a href="page-services.html"><i class="fa fa-angle-right"></i>Hair, Makeup &amp; Stylist Jobs</a></li>
+                                                                                            <li ><a href="page-services-2.html"><i class="fa fa-angle-right"></i>TV &amp; Reality Jobs</a></li>
+                                                                                            <li ><a href="page-services-3.html"><i class="fa fa-angle-right"></i>Magazine Jobs</a></li>
+                                                                                            <li ><a href="page-contact.html"><i class="fa fa-angle-right"></i>Modeling Jobs</a></li>                                    
+                                                                                        </ul>
+                                                                                    </div>                            
                                                                                 </div>
-                                                                                <div class="col-sm-4">
-                                                                                    <div class="divider"></div>
-                                                                                    <ul class="menu">
-                                                                                        <li ><a href="page-services.html"><i class="fa fa-angle-right"></i>Hair, Makeup &amp; Stylist Jobs</a></li>
-                                                                                        <li ><a href="page-services-2.html"><i class="fa fa-angle-right"></i>TV &amp; Reality Jobs</a></li>
-                                                                                        <li ><a href="page-services-3.html"><i class="fa fa-angle-right"></i>Magazine Jobs</a></li>
-                                                                                        <li ><a href="page-contact.html"><i class="fa fa-angle-right"></i>Modeling Jobs</a></li>                                    
-                                                                                    </ul>
-                                                                                </div>                            
+                                                                            </div>
+                                                                            <div class="col-lg-4 col-md-3 hidden-sm">
+                                                                                <h4 class="title">Casting and Audition Jobs</h4>
+                                                                                <p class="mb-10">Genuine and verified job postings. Find the perfect job you are looking for</p>
+                                                                                <img src="resources/images/section-image-3.png" alt="The Project"/>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="col-lg-4 col-md-3 hidden-sm">
-                                                                            <h4 class="title">Casting and Audition Jobs</h4>
-                                                                            <p class="mb-10">Genuine and verified job postings. Find the perfect job you are looking for</p>
-                                                                            <img src="resources/images/section-image-3.png" alt="The Project"/>
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+                                                            <!-- mega-menu end -->
+
+                                                            <!-- mega-menu start -->
+                                                            <li class="dropdown  mega-menu">
+                                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Talent Search</a>
+
+                                                            </li>
+                                                            <!--Talent Search mega-menu end -->
+
+                                                            <!--Cast Room mega-menu begin -->
+                                                            <li class="dropdown ">
+                                                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Cast Room</a>
+                                                                <ul class="dropdown-menu">
+                                                                    <li class="dropdown ">
+                                                                        <a  class="dropdown-toggle" data-toggle="dropdown" href="#">Headers <span class="badge">NEW</span></a>
+                                                                        <ul class="dropdown-menu">
+                                                                            <li ><a href="features-headers-default.html">Default/Semi-Transparent</a></li>
+                                                                            <li ><a href="features-headers-default-dark.html">Dark/Semi-Transparent</a></li>
+                                                                            <li ><a href="features-headers-gradient-dark.html">Gradient Dark <span class="badge">NEW</span></a></li>
+                                                                            <li ><a href="features-headers-gradient-light.html">Gradient Light <span class="badge">NEW</span></a></li>
+                                                                            <li ><a href="features-headers-classic.html">Classic Light</a></li>
+                                                                            <li ><a href="features-headers-classic-dark.html">Classic Dark</a></li>
+                                                                            <li ><a href="features-headers-colored.html">Colored/Light</a></li>
+                                                                            <li ><a href="features-headers-colored-dark.html">Colored/Dark</a></li>
+                                                                            <li ><a href="features-headers-full-width.html">Full Width</a></li>
+                                                                            <li ><a href="features-headers-offcanvas-left.html">Offcanvas Left Side</a></li>
+                                                                            <li ><a href="features-headers-offcanvas-right.html">Offcanvas Right Side</a></li>
+                                                                            <li ><a href="features-headers-logo-centered.html">Logo Centered</a></li>
+                                                                            <li ><a href="features-headers-slider-top.html">Slider Top</a></li>
+                                                                            <li ><a href="features-headers-simple.html">Simple Static</a></li>
+                                                                        </ul>
+                                                                    </li>
+                                                                    <li class="dropdown ">
+                                                                        <a  class="dropdown-toggle" data-toggle="dropdown" href="#">Sticky Headers <span class="badge">NEW</span></a>
+                                                                        <ul class="dropdown-menu">
+                                                                            <li ><a href="features-headers-default.html">Default</a></li>
+                                                                            <li ><a href="features-headers-sticky-2.html">Alternative <span class="badge">NEW</span></a></li>
+                                                                        </ul>
+                                                                    </li>
+                                                                    <li class="dropdown ">
+                                                                        <a  class="dropdown-toggle" data-toggle="dropdown" href="#">Menus</a>
+                                                                        <ul class="dropdown-menu">
+                                                                            <li ><a href="features-headers-default.html">Default/On Hover Menu</a></li>
+                                                                            <li ><a href="features-menus-onhover-no-animations.html">On Hover Menu - No Animations</a></li>
+                                                                            <li ><a href="features-menus-onclick.html">On Click Menu - With Animations</a></li>
+                                                                            <li ><a href="features-menus-onclick-no-animations.html">On Click Menu - No Animations</a></li>
+                                                                        </ul>
+                                                                    </li>
+                                                                    <li class="dropdown ">
+                                                                        <a  class="dropdown-toggle" data-toggle="dropdown" href="#">Footers <span class="badge">NEW</span></a>
+                                                                        <ul class="dropdown-menu">
+                                                                            <li ><a href="features-footers-default.html#footer">Default</a></li>
+                                                                            <li ><a href="features-footers-contact-form.html#footer">Contact Form</a></li>
+                                                                            <li ><a href="features-footers-contact-form-2.html#footer">Contact Form 2 <span class="badge">NEW</span></a></li>
+                                                                            <li ><a href="features-footers-google-maps.html#footer">Google Maps</a></li>
+                                                                            <li ><a href="features-footers-subscribe.html#footer">Subscribe Form</a></li>
+                                                                            <li ><a href="features-footers-minimal.html#footer">Minimal</a></li>
+                                                                            <li ><a href="features-footers-links.html#footer">Links <span class="badge">v1.1</span></a></li>
+                                                                            <li ><a href="features-footers-full-width.html#footer">Full Width <span class="badge">NEW</span></a></li>
+                                                                        </ul>
+                                                                    </li>
+                                                                    <li class="dropdown ">
+                                                                        <a  class="dropdown-toggle" data-toggle="dropdown" href="#">Main Sliders <span class="badge">NEW</span></a>
+                                                                        <ul class="dropdown-menu">
+                                                                            <li class="dropdown-header default-bg">SLIDER REVOLUTION 5 - NEW</li>
+                                                                            <li ><a href="features-sliders-fullscreen.html">Full Screen</a></li>
+                                                                            <li ><a href="features-sliders-fullwidth.html">Full Width</a></li>
+                                                                            <li ><a href="features-sliders-fullwidth-big-height.html">Full Width - Big Height</a></li>
+                                                                            <li ><a href="features-sliders-boxedwidth-light.html">Boxed Width - Light Bg</a></li>
+                                                                            <li ><a href="features-sliders-boxedwidth-dark.html">Boxed Width - Dark Bg</a></li>
+                                                                            <li ><a href="features-sliders-boxedwidth-default.html">Boxed Width - Default Bg</a></li>
+                                                                            <li ><a href="features-sliders-video-background.html">Video Background</a></li>
+                                                                            <li ><a href="features-sliders-text-rotator.html">Text Rotator</a></li>
+                                                                            <li  class="dropdown ">
+                                                                                <a  class="dropdown-toggle" data-toggle="dropdown" href="#">Revolution 4</a>
+                                                                                <ul class="dropdown-menu">
+                                                                                    <li ><a href="features-sliders-revolution-4-fullscreen.html">Full Screen</a></li>
+                                                                                    <li ><a href="features-sliders-revolution-4-fullwidth.html">Full Width</a></li>
+                                                                                    <li ><a href="features-sliders-revolution-4-fullwidth-big-height.html">Full Width - Big Height</a></li>
+                                                                                    <li ><a href="features-sliders-revolution-4-boxedwidth-light.html">Boxed Width - Light Bg</a></li>
+                                                                                    <li ><a href="features-sliders-revolution-4-boxedwidth-dark.html">Boxed Width - Dark Bg</a></li>
+                                                                                    <li ><a href="features-sliders-revolution-4-boxedwidth-default.html">Boxed Width - Default Bg</a></li>
+                                                                                    <li ><a href="features-sliders-revolution-4-video-background.html">Video Background</a></li>
+                                                                                    <li ><a href="features-sliders-revolution-4-text-rotator.html">Text Rotator</a></li>
+                                                                                </ul>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </li>
+                                                                    <li class="dropdown">
+                                                                        <a  class="dropdown-toggle" data-toggle="dropdown" href="#">Email Templates <span class="badge">v1.1</span></a>
+                                                                        <ul class="dropdown-menu">
+                                                                            <li><a target="_blank" href="email_templates/email_template_blue.html">Blue</a></li>
+                                                                            <li><a target="_blank" href="email_templates/email_template_brown.html">Brown</a></li>
+                                                                            <li><a target="_blank" href="email_templates/email_template_cool_green.html">Cool Green</a></li>
+                                                                            <li><a target="_blank" href="email_templates/email_template_dark_cyan.html">Dark Cyan</a></li>
+                                                                            <li><a target="_blank" href="email_templates/email_template_dark_red.html">Dark Red</a></li>
+                                                                            <li><a target="_blank" href="email_templates/email_template_gold.html">Gold</a></li>
+                                                                            <li><a target="_blank" href="email_templates/email_template_gray.html">Gray</a></li>
+                                                                            <li><a target="_blank" href="email_templates/email_template_green.html">Green</a></li>
+                                                                            <li><a target="_blank" href="email_templates/email_template_light_blue.html">Light Blue</a></li>
+                                                                            <li><a target="_blank" href="email_templates/email_template_orange.html">Orange</a></li>
+                                                                            <li><a target="_blank" href="email_templates/email_template_pink.html">Pink</a></li>
+                                                                            <li><a target="_blank" href="email_templates/email_template_purple.html">Purple</a></li>
+                                                                            <li><a target="_blank" href="email_templates/email_template_red.html">Red</a></li>
+                                                                            <li><a target="_blank" href="email_templates/email_template_vivid_red.html">Vivid Red</a></li>
+                                                                        </ul>
+                                                                    </li>
+                                                                    <li class="dropdown ">
+                                                                        <a  class="dropdown-toggle" data-toggle="dropdown" href="#">Pricing Tables</a>
+                                                                        <ul class="dropdown-menu">
+                                                                            <li ><a href="features-pricing-tables-1.html">Pricing Tables 1</a></li>
+                                                                            <li ><a href="features-pricing-tables-2.html">Pricing Tables 2</a></li>
+                                                                            <li ><a href="features-pricing-tables-3.html">Pricing Tables 3</a></li>
+                                                                        </ul>
+                                                                    </li>
+                                                                    <li class="dropdown ">
+                                                                        <a  class="dropdown-toggle" data-toggle="dropdown" href="#">Icons</a>
+                                                                        <ul class="dropdown-menu">
+                                                                            <li ><a href="features-icons-fontawesome.html">Font Awesome</a></li>
+                                                                            <li ><a href="features-icons-fontello.html">Fontello</a></li>
+                                                                            <li ><a href="features-icons-glyphicons.html">Glyphicons</a></li>
+                                                                        </ul>
+                                                                    </li>
+                                                                    <li ><a href="features-dark-page.html">Dark Page</a></li>
+                                                                    <li ><a href="features-typography.html">Typography</a></li>
+                                                                    <li ><a href="features-backgrounds.html">Backgrounds</a></li>
+                                                                    <li ><a href="features-grid.html">Grid</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <!-- mega-menu start -->
+                                                            <li class="dropdown  mega-menu narrow">
+                                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cast Tube</a>
+                                                                <ul class="dropdown-menu">
+                                                                    <li>
+                                                                        <div class="row">
+                                                                            <div class="col-md-12">
+                                                                                <h4 class="title"><i class="fa fa-magic pr-10"></i> Cast Tube</h4>
+                                                                                <div class="row">
+                                                                                    <div class="col-sm-6">
+                                                                                        <div class="divider"></div>
+                                                                                        <ul class="menu">
+                                                                                            <li ><a href="components-social-icons.html"><i class="icon-share pr-10"></i>Social Icons</a></li>
+                                                                                            <li ><a href="components-buttons.html"><i class="icon-flask pr-10"></i>Buttons</a></li>
+                                                                                            <li ><a href="components-forms.html"><i class="icon-eq pr-10"></i>Forms</a></li>
+                                                                                            <li ><a href="components-tabs-and-pills.html"><i class=" icon-dot-3 pr-10"></i>Tabs &amp; Pills</a></li>
+                                                                                            <li ><a href="components-accordions.html"><i class="icon-menu-outline pr-10"></i>Accordions</a></li>
+                                                                                            <li ><a href="components-progress-bars.html"><i class="icon-chart-line pr-10"></i>Progress Bars</a></li>
+                                                                                            <li ><a href="components-call-to-action.html"><i class="icon-chat pr-10"></i>Call to Action Blocks</a></li>
+                                                                                            <li ><a href="components-alerts-and-callouts.html"><i class="icon-info-circled pr-10"></i>Alerts &amp; Callouts</a></li>
+                                                                                            <li ><a href="components-content-sliders.html"><i class="icon-star-filled pr-10"></i>Content Sliders</a></li>
+                                                                                            <li ><a href="components-charts.html"><i class="icon-chart-pie pr-10"></i>Charts</a></li>
+                                                                                            <li ><a href="components-page-loaders.html"><i class="fa fa-circle-o-notch fa-spin"></i>Page Loaders <span class="badge">v1.1</span></a></li>
+                                                                                        </ul>
+                                                                                    </div>
+                                                                                    <div class="col-sm-6">
+                                                                                        <div class="divider"></div>
+                                                                                        <ul class="menu">
+                                                                                            <li ><a href="components-icon-boxes.html"><i class="icon-picture-outline pr-10"></i>Icon Boxes</a></li>
+                                                                                            <li ><a href="components-image-boxes.html"><i class="icon-camera-1 pr-10"></i>Image Boxes</a></li>
+                                                                                            <li ><a href="components-fullwidth-sections.html"><i class="icon-code-1 pr-10"></i>Full Width Sections</a></li>
+                                                                                            <li ><a href="components-animations.html"><i class="icon-docs pr-10"></i>Animations</a></li>
+                                                                                            <li ><a href="components-video-and-audio.html"><i class="icon-video pr-10"></i>Video &amp; Audio</a></li>
+                                                                                            <li ><a href="components-lightbox.html"><i class="icon-plus pr-10"></i>Lightbox</a></li>
+                                                                                            <li ><a href="components-counters.html"><i class="icon-sort-numeric pr-10"></i>Counters</a></li>
+                                                                                            <li ><a href="components-modals.html"><i class="icon-popup pr-10"></i>Modals</a></li>
+                                                                                            <li ><a href="components-tables.html"><i class="icon-th pr-10"></i>Tables</a></li>
+                                                                                            <li ><a href="components-text-rotators.html"><i class="icon-arrows-ccw pr-10"></i>Text Rotators</a></li>
+                                                                                        </ul>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
                                                                         </div>
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
-                                                        </li>
-                                                        <!-- mega-menu end -->
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
 
-                                                        <!-- mega-menu start -->
-                                                        <li class="dropdown  mega-menu">
-                                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Talent Search</a>
+                                                            <!-- main-menu end -->
 
-                                                        </li>
-                                                        <!--Talent Search mega-menu end -->
-
-                                                        <!--Cast Room mega-menu begin -->
-                                                        <li class="dropdown ">
-                                                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Cast Room</a>
-                                                            <ul class="dropdown-menu">
-                                                                <li class="dropdown ">
-                                                                    <a  class="dropdown-toggle" data-toggle="dropdown" href="#">Headers <span class="badge">NEW</span></a>
-                                                                    <ul class="dropdown-menu">
-                                                                        <li ><a href="features-headers-default.html">Default/Semi-Transparent</a></li>
-                                                                        <li ><a href="features-headers-default-dark.html">Dark/Semi-Transparent</a></li>
-                                                                        <li ><a href="features-headers-gradient-dark.html">Gradient Dark <span class="badge">NEW</span></a></li>
-                                                                        <li ><a href="features-headers-gradient-light.html">Gradient Light <span class="badge">NEW</span></a></li>
-                                                                        <li ><a href="features-headers-classic.html">Classic Light</a></li>
-                                                                        <li ><a href="features-headers-classic-dark.html">Classic Dark</a></li>
-                                                                        <li ><a href="features-headers-colored.html">Colored/Light</a></li>
-                                                                        <li ><a href="features-headers-colored-dark.html">Colored/Dark</a></li>
-                                                                        <li ><a href="features-headers-full-width.html">Full Width</a></li>
-                                                                        <li ><a href="features-headers-offcanvas-left.html">Offcanvas Left Side</a></li>
-                                                                        <li ><a href="features-headers-offcanvas-right.html">Offcanvas Right Side</a></li>
-                                                                        <li ><a href="features-headers-logo-centered.html">Logo Centered</a></li>
-                                                                        <li ><a href="features-headers-slider-top.html">Slider Top</a></li>
-                                                                        <li ><a href="features-headers-simple.html">Simple Static</a></li>
-                                                                    </ul>
-                                                                </li>
-                                                                <li class="dropdown ">
-                                                                    <a  class="dropdown-toggle" data-toggle="dropdown" href="#">Sticky Headers <span class="badge">NEW</span></a>
-                                                                    <ul class="dropdown-menu">
-                                                                        <li ><a href="features-headers-default.html">Default</a></li>
-                                                                        <li ><a href="features-headers-sticky-2.html">Alternative <span class="badge">NEW</span></a></li>
-                                                                    </ul>
-                                                                </li>
-                                                                <li class="dropdown ">
-                                                                    <a  class="dropdown-toggle" data-toggle="dropdown" href="#">Menus</a>
-                                                                    <ul class="dropdown-menu">
-                                                                        <li ><a href="features-headers-default.html">Default/On Hover Menu</a></li>
-                                                                        <li ><a href="features-menus-onhover-no-animations.html">On Hover Menu - No Animations</a></li>
-                                                                        <li ><a href="features-menus-onclick.html">On Click Menu - With Animations</a></li>
-                                                                        <li ><a href="features-menus-onclick-no-animations.html">On Click Menu - No Animations</a></li>
-                                                                    </ul>
-                                                                </li>
-                                                                <li class="dropdown ">
-                                                                    <a  class="dropdown-toggle" data-toggle="dropdown" href="#">Footers <span class="badge">NEW</span></a>
-                                                                    <ul class="dropdown-menu">
-                                                                        <li ><a href="features-footers-default.html#footer">Default</a></li>
-                                                                        <li ><a href="features-footers-contact-form.html#footer">Contact Form</a></li>
-                                                                        <li ><a href="features-footers-contact-form-2.html#footer">Contact Form 2 <span class="badge">NEW</span></a></li>
-                                                                        <li ><a href="features-footers-google-maps.html#footer">Google Maps</a></li>
-                                                                        <li ><a href="features-footers-subscribe.html#footer">Subscribe Form</a></li>
-                                                                        <li ><a href="features-footers-minimal.html#footer">Minimal</a></li>
-                                                                        <li ><a href="features-footers-links.html#footer">Links <span class="badge">v1.1</span></a></li>
-                                                                        <li ><a href="features-footers-full-width.html#footer">Full Width <span class="badge">NEW</span></a></li>
-                                                                    </ul>
-                                                                </li>
-                                                                <li class="dropdown ">
-                                                                    <a  class="dropdown-toggle" data-toggle="dropdown" href="#">Main Sliders <span class="badge">NEW</span></a>
-                                                                    <ul class="dropdown-menu">
-                                                                        <li class="dropdown-header default-bg">SLIDER REVOLUTION 5 - NEW</li>
-                                                                        <li ><a href="features-sliders-fullscreen.html">Full Screen</a></li>
-                                                                        <li ><a href="features-sliders-fullwidth.html">Full Width</a></li>
-                                                                        <li ><a href="features-sliders-fullwidth-big-height.html">Full Width - Big Height</a></li>
-                                                                        <li ><a href="features-sliders-boxedwidth-light.html">Boxed Width - Light Bg</a></li>
-                                                                        <li ><a href="features-sliders-boxedwidth-dark.html">Boxed Width - Dark Bg</a></li>
-                                                                        <li ><a href="features-sliders-boxedwidth-default.html">Boxed Width - Default Bg</a></li>
-                                                                        <li ><a href="features-sliders-video-background.html">Video Background</a></li>
-                                                                        <li ><a href="features-sliders-text-rotator.html">Text Rotator</a></li>
-                                                                        <li  class="dropdown ">
-                                                                            <a  class="dropdown-toggle" data-toggle="dropdown" href="#">Revolution 4</a>
-                                                                            <ul class="dropdown-menu">
-                                                                                <li ><a href="features-sliders-revolution-4-fullscreen.html">Full Screen</a></li>
-                                                                                <li ><a href="features-sliders-revolution-4-fullwidth.html">Full Width</a></li>
-                                                                                <li ><a href="features-sliders-revolution-4-fullwidth-big-height.html">Full Width - Big Height</a></li>
-                                                                                <li ><a href="features-sliders-revolution-4-boxedwidth-light.html">Boxed Width - Light Bg</a></li>
-                                                                                <li ><a href="features-sliders-revolution-4-boxedwidth-dark.html">Boxed Width - Dark Bg</a></li>
-                                                                                <li ><a href="features-sliders-revolution-4-boxedwidth-default.html">Boxed Width - Default Bg</a></li>
-                                                                                <li ><a href="features-sliders-revolution-4-video-background.html">Video Background</a></li>
-                                                                                <li ><a href="features-sliders-revolution-4-text-rotator.html">Text Rotator</a></li>
-                                                                            </ul>
+                                                            <!-- header dropdown buttons -->
+                                                            <div class="header-dropdown-buttons hidden-xs ">
+                                                                <div class="btn-group dropdown">
+                                                                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"><i class="icon-search"></i></button>
+                                                                    <ul class="dropdown-menu dropdown-menu-right dropdown-animation">
+                                                                        <li>
+                                                                            <form role="search" class="search-box margin-clear">
+                                                                                <div class="form-group has-feedback">
+                                                                                    <input type="text" class="form-control" placeholder="Search"/>
+                                                                                    <i class="icon-search form-control-feedback"></i>
+                                                                                </div>
+                                                                            </form>
                                                                         </li>
                                                                     </ul>
-                                                                </li>
-                                                                <li class="dropdown">
-                                                                    <a  class="dropdown-toggle" data-toggle="dropdown" href="#">Email Templates <span class="badge">v1.1</span></a>
-                                                                    <ul class="dropdown-menu">
-                                                                        <li><a target="_blank" href="email_templates/email_template_blue.html">Blue</a></li>
-                                                                        <li><a target="_blank" href="email_templates/email_template_brown.html">Brown</a></li>
-                                                                        <li><a target="_blank" href="email_templates/email_template_cool_green.html">Cool Green</a></li>
-                                                                        <li><a target="_blank" href="email_templates/email_template_dark_cyan.html">Dark Cyan</a></li>
-                                                                        <li><a target="_blank" href="email_templates/email_template_dark_red.html">Dark Red</a></li>
-                                                                        <li><a target="_blank" href="email_templates/email_template_gold.html">Gold</a></li>
-                                                                        <li><a target="_blank" href="email_templates/email_template_gray.html">Gray</a></li>
-                                                                        <li><a target="_blank" href="email_templates/email_template_green.html">Green</a></li>
-                                                                        <li><a target="_blank" href="email_templates/email_template_light_blue.html">Light Blue</a></li>
-                                                                        <li><a target="_blank" href="email_templates/email_template_orange.html">Orange</a></li>
-                                                                        <li><a target="_blank" href="email_templates/email_template_pink.html">Pink</a></li>
-                                                                        <li><a target="_blank" href="email_templates/email_template_purple.html">Purple</a></li>
-                                                                        <li><a target="_blank" href="email_templates/email_template_red.html">Red</a></li>
-                                                                        <li><a target="_blank" href="email_templates/email_template_vivid_red.html">Vivid Red</a></li>
-                                                                    </ul>
-                                                                </li>
-                                                                <li class="dropdown ">
-                                                                    <a  class="dropdown-toggle" data-toggle="dropdown" href="#">Pricing Tables</a>
-                                                                    <ul class="dropdown-menu">
-                                                                        <li ><a href="features-pricing-tables-1.html">Pricing Tables 1</a></li>
-                                                                        <li ><a href="features-pricing-tables-2.html">Pricing Tables 2</a></li>
-                                                                        <li ><a href="features-pricing-tables-3.html">Pricing Tables 3</a></li>
-                                                                    </ul>
-                                                                </li>
-                                                                <li class="dropdown ">
-                                                                    <a  class="dropdown-toggle" data-toggle="dropdown" href="#">Icons</a>
-                                                                    <ul class="dropdown-menu">
-                                                                        <li ><a href="features-icons-fontawesome.html">Font Awesome</a></li>
-                                                                        <li ><a href="features-icons-fontello.html">Fontello</a></li>
-                                                                        <li ><a href="features-icons-glyphicons.html">Glyphicons</a></li>
-                                                                    </ul>
-                                                                </li>
-                                                                <li ><a href="features-dark-page.html">Dark Page</a></li>
-                                                                <li ><a href="features-typography.html">Typography</a></li>
-                                                                <li ><a href="features-backgrounds.html">Backgrounds</a></li>
-                                                                <li ><a href="features-grid.html">Grid</a></li>
-                                                            </ul>
-                                                        </li>
-                                                        <!-- mega-menu start -->
-                                                        <li class="dropdown  mega-menu narrow">
-                                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cast Tube</a>
-                                                            <ul class="dropdown-menu">
-                                                                <li>
-                                                                    <div class="row">
-                                                                        <div class="col-md-12">
-                                                                            <h4 class="title"><i class="fa fa-magic pr-10"></i> Cast Tube</h4>
-                                                                            <div class="row">
-                                                                                <div class="col-sm-6">
-                                                                                    <div class="divider"></div>
-                                                                                    <ul class="menu">
-                                                                                        <li ><a href="components-social-icons.html"><i class="icon-share pr-10"></i>Social Icons</a></li>
-                                                                                        <li ><a href="components-buttons.html"><i class="icon-flask pr-10"></i>Buttons</a></li>
-                                                                                        <li ><a href="components-forms.html"><i class="icon-eq pr-10"></i>Forms</a></li>
-                                                                                        <li ><a href="components-tabs-and-pills.html"><i class=" icon-dot-3 pr-10"></i>Tabs &amp; Pills</a></li>
-                                                                                        <li ><a href="components-accordions.html"><i class="icon-menu-outline pr-10"></i>Accordions</a></li>
-                                                                                        <li ><a href="components-progress-bars.html"><i class="icon-chart-line pr-10"></i>Progress Bars</a></li>
-                                                                                        <li ><a href="components-call-to-action.html"><i class="icon-chat pr-10"></i>Call to Action Blocks</a></li>
-                                                                                        <li ><a href="components-alerts-and-callouts.html"><i class="icon-info-circled pr-10"></i>Alerts &amp; Callouts</a></li>
-                                                                                        <li ><a href="components-content-sliders.html"><i class="icon-star-filled pr-10"></i>Content Sliders</a></li>
-                                                                                        <li ><a href="components-charts.html"><i class="icon-chart-pie pr-10"></i>Charts</a></li>
-                                                                                        <li ><a href="components-page-loaders.html"><i class="fa fa-circle-o-notch fa-spin"></i>Page Loaders <span class="badge">v1.1</span></a></li>
-                                                                                    </ul>
-                                                                                </div>
-                                                                                <div class="col-sm-6">
-                                                                                    <div class="divider"></div>
-                                                                                    <ul class="menu">
-                                                                                        <li ><a href="components-icon-boxes.html"><i class="icon-picture-outline pr-10"></i>Icon Boxes</a></li>
-                                                                                        <li ><a href="components-image-boxes.html"><i class="icon-camera-1 pr-10"></i>Image Boxes</a></li>
-                                                                                        <li ><a href="components-fullwidth-sections.html"><i class="icon-code-1 pr-10"></i>Full Width Sections</a></li>
-                                                                                        <li ><a href="components-animations.html"><i class="icon-docs pr-10"></i>Animations</a></li>
-                                                                                        <li ><a href="components-video-and-audio.html"><i class="icon-video pr-10"></i>Video &amp; Audio</a></li>
-                                                                                        <li ><a href="components-lightbox.html"><i class="icon-plus pr-10"></i>Lightbox</a></li>
-                                                                                        <li ><a href="components-counters.html"><i class="icon-sort-numeric pr-10"></i>Counters</a></li>
-                                                                                        <li ><a href="components-modals.html"><i class="icon-popup pr-10"></i>Modals</a></li>
-                                                                                        <li ><a href="components-tables.html"><i class="icon-th pr-10"></i>Tables</a></li>
-                                                                                        <li ><a href="components-text-rotators.html"><i class="icon-arrows-ccw pr-10"></i>Text Rotators</a></li>
-                                                                                    </ul>
-                                                                                </div>
+                                                                </div>
+                                                                <div class="btn-group dropdown">
+                                                                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"><i class="icon-basket-1"></i><span class="cart-count default-bg">8</span></button>
+                                                                    <ul class="dropdown-menu dropdown-menu-right dropdown-animation cart">
+                                                                        <li>
+                                                                            <table class="table table-hover">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th class="quantity">QTY</th>
+                                                                                        <th class="product">Product</th>
+                                                                                        <th class="amount">Subtotal</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td class="quantity">2 x</td>
+                                                                                        <td class="product"><a href="shop-product.html">Android 4.4 Smartphone</a><span class="small">4.7" Dual Core 1GB</span></td>
+                                                                                        <td class="amount">$199.00</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td class="quantity">3 x</td>
+                                                                                        <td class="product"><a href="shop-product.html">Android 4.2 Tablet</a><span class="small">7.3" Quad Core 2GB</span></td>
+                                                                                        <td class="amount">$299.00</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td class="quantity">3 x</td>
+                                                                                        <td class="product"><a href="shop-product.html">Desktop PC</a><span class="small">Quad Core 3.2MHz, 8GB RAM, 1TB Hard Disk</span></td>
+                                                                                        <td class="amount">$1499.00</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td class="total-quantity" colspan="2">Total 8 Items</td>
+                                                                                        <td class="total-amount">$1997.00</td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                            <div class="panel-body text-right">
+                                                                                <a href="shop-cart.html" class="btn btn-group btn-gray btn-sm">View Cart</a>
+                                                                                <a href="shop-checkout.html" class="btn btn-group btn-gray btn-sm">Checkout</a>
                                                                             </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
-                                                        </li>
-
-                                                        <!-- main-menu end -->
-
-                                                        <!-- header dropdown buttons -->
-                                                        <div class="header-dropdown-buttons hidden-xs ">
-                                                            <div class="btn-group dropdown">
-                                                                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"><i class="icon-search"></i></button>
-                                                                <ul class="dropdown-menu dropdown-menu-right dropdown-animation">
-                                                                    <li>
-                                                                        <form role="search" class="search-box margin-clear">
-                                                                            <div class="form-group has-feedback">
-                                                                                <input type="text" class="form-control" placeholder="Search"/>
-                                                                                <i class="icon-search form-control-feedback"></i>
-                                                                            </div>
-                                                                        </form>
-                                                                    </li>
-                                                                </ul>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
                                                             </div>
-                                                            <div class="btn-group dropdown">
-                                                                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"><i class="icon-basket-1"></i><span class="cart-count default-bg">8</span></button>
-                                                                <ul class="dropdown-menu dropdown-menu-right dropdown-animation cart">
-                                                                    <li>
-                                                                        <table class="table table-hover">
-                                                                            <thead>
-                                                                                <tr>
-                                                                                    <th class="quantity">QTY</th>
-                                                                                    <th class="product">Product</th>
-                                                                                    <th class="amount">Subtotal</th>
-                                                                                </tr>
-                                                                            </thead>
-                                                                            <tbody>
-                                                                                <tr>
-                                                                                    <td class="quantity">2 x</td>
-                                                                                    <td class="product"><a href="shop-product.html">Android 4.4 Smartphone</a><span class="small">4.7" Dual Core 1GB</span></td>
-                                                                                    <td class="amount">$199.00</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td class="quantity">3 x</td>
-                                                                                    <td class="product"><a href="shop-product.html">Android 4.2 Tablet</a><span class="small">7.3" Quad Core 2GB</span></td>
-                                                                                    <td class="amount">$299.00</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td class="quantity">3 x</td>
-                                                                                    <td class="product"><a href="shop-product.html">Desktop PC</a><span class="small">Quad Core 3.2MHz, 8GB RAM, 1TB Hard Disk</span></td>
-                                                                                    <td class="amount">$1499.00</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td class="total-quantity" colspan="2">Total 8 Items</td>
-                                                                                    <td class="total-amount">$1997.00</td>
-                                                                                </tr>
-                                                                            </tbody>
-                                                                        </table>
-                                                                        <div class="panel-body text-right">
-                                                                            <a href="shop-cart.html" class="btn btn-group btn-gray btn-sm">View Cart</a>
-                                                                            <a href="shop-checkout.html" class="btn btn-group btn-gray btn-sm">Checkout</a>
-                                                                        </div>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </ul>
-                                                    <!-- header dropdown buttons end-->
+                                                        </ul>
+                                                        <!-- header dropdown buttons end-->
+
+                                                    </div>
+                                                    <!-- END REMOVED-->
 
                                                 </div>
-                                                <!-- END REMOVED-->
+                                            </nav>
+                                            <!-- navbar end -->
 
-                                            </div>
-                                        </nav>
-                                        <!-- navbar end -->
-
+                                        </div>
+                                        <!-- main-navigation end -->
                                     </div>
-                                    <!-- main-navigation end -->
-                                </div>
-                                <!-- header-right end -->
+                                    <!-- header-right end -->
 
-                            </div>
+                                </div>
+                            </ui:insert>
                         </div>
                     </div>
 
                 </header>
+
                 <!-- header end -->
             </div>
+
             <!-- header-container end -->
 
             <!--BANNER BEGINS HERE -->

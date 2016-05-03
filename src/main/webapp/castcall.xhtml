@@ -1,0 +1,177 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./WEB-INF/castu-template-main.xhtml">
+
+            <ui:define name="title">
+                Title
+            </ui:define>
+
+            <ui:define name="header-top">
+
+            </ui:define>
+
+            <ui:define name="header-dropdown">
+
+            </ui:define>
+
+            <ui:define name="header-nav">
+
+            </ui:define>
+
+            <ui:define name="banner">
+
+            </ui:define>
+
+            <ui:define name="breadcrumb">
+
+            </ui:define>
+
+            <ui:define name="main-content">
+                <!-- section start -->
+                <!-- ================ -->
+                <div class="section ">
+                    <div class="container">
+                        <h2>List an Audition or Job - free</h2>                        
+                        <h:form id="UserForm" role="form">
+                            <h4>Headline</h4>
+                            <small>e.g. Two actors required for supporting roles in thriller feature film</small>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <input  type="text" class="form-control" jsf:id="headline">
+                                            <!-- <f:ajax/> -->
+                                        </input>
+                                    </div>
+                                </div>                                
+                            </div>
+                            <hr/>
+                            <h4>Category</h4>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <!--                                        <label class="control-label" jsf:for="category">Category</label>-->
+                                        <select class="form-control" size="10">	
+                                            <option value="">--- Please Select ---</option>
+                                            <option value="1">Actors and Extras wanted</option>
+                                            <option value="2">Dancers wanted</option>
+                                            <option value="3">Film &amp; Stage Crew wanted</option>
+                                            <option value="4">Film &amp; Stage Crew wanted</option>
+                                            <option value="5">Musicians wanted</option>
+                                            <option value="6">Photographers wanted</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group"> 
+                                        <select class="form-control" size="10">	
+                                            <option value="">--- Please Select ---</option>
+                                            <option value="2">Audiences</option>
+                                            <option value="2">TV &amp; Reality</option>
+                                            <option value="2">Game Shows</option>
+                                            <option value="2">French Tutor</option>
+                                            <option value="2">Cooking class</option>
+                                            <option value="2">Book Club</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <hr/>
+                            <h4>Applicants must provide</h4>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input jsf:id="phoneNumber" type="checkbox" >
+
+                                            </input>
+                                            Phone Number
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input jsf:id="photo" type="checkbox" >
+
+                                            </input>
+                                            Photo
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr/>
+                            <h4>Audition location</h4>
+                            <div class="row" >
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <h:selectOneMenu id="country" class="form-control" >
+                                            <f:selectItem itemValue="" itemLabel="--- Please Select ---"/>
+                                            <f:selectItem itemValue="Nigeria" itemLabel="Nigeria"/>
+                                            <f:selectItem itemValue="Ghana" itemLabel="Ghana"/>
+                                            <f:selectItem itemValue="Togo" itemLabel="Togo"/>
+                                            <f:selectItem itemValue="Liberia" itemLabel="Liberia"/>
+                                        </h:selectOneMenu>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <h:selectOneMenu id="state" class="form-control" >
+                                            <f:selectItem itemValue="" itemLabel="--- Please Select ---"/>
+                                            <f:selectItem itemValue="Abia" itemLabel="Abia"/>
+                                            <f:selectItem itemValue="Abuja" itemLabel="Abuja"/>
+                                            <f:selectItem itemValue="Nasarawa" itemLabel="Nasarawa"/>
+                                            <f:selectItem itemValue="Lagos" itemLabel="Lagos"/>    
+                                        </h:selectOneMenu>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr/>
+                            <h4>Project description</h4>
+                            <small>Include as much information as you can (e.g. audition and shoot dates) to receive more relevant applications.</small>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <h:inputTextarea id="description" rows="6" class="form-control" >
+
+                                        </h:inputTextarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <small>3210 characters remaining</small>
+                            <hr/>
+
+                            <p>By continuing, you confirm that you have read and agree with CastU's <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy</a>.</p>
+
+                            <div class="row">
+                                <div class="col-md-offset-5 col-md-2">
+                                    <div class="form-group">
+                                        <button id="nextButton" jsf:outcome="roleDetails"  class="btn btn-group btn-default btn-animated">Next <i class="fa fa-angle-double-right"></i>
+
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                             
+                        </h:form>
+
+                    </div>
+                </div>
+                <!-- section end -->
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
