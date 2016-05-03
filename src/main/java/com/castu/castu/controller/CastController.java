@@ -7,7 +7,7 @@ package com.castu.castu.controller;
 
 import com.castu.castu.controller.JsfUtil.PersistAction;
 import com.castu.castu.ejb.CastBean;
-import com.castu.castu.entity.CastCall;
+import com.castu.castu.entity.Cast;
 import com.castu.castu.entity.Gender;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
@@ -38,8 +38,8 @@ public class CastController implements Serializable {
 
     @EJB
     private CastBean castBean;
-    private CastCall currentCast;
-    private List<CastCall> casts;
+    private Cast currentCast;
+    private List<Cast> casts;
 
     /**
      * Creates a new instance of UserController
@@ -47,11 +47,11 @@ public class CastController implements Serializable {
     public CastController() {
     }
 
-    public CastCall getCurrentCast() {
+    public Cast getCurrentCast() {
         return currentCast;
     }
 
-    public void setCurrentCast(CastCall currentCast) {
+    public void setCurrentCast(Cast currentCast) {
         this.currentCast = currentCast;
     }
 
@@ -66,7 +66,7 @@ public class CastController implements Serializable {
     }
 
     public void prepareCreate() {
-        currentCast = new CastCall();
+        currentCast = new Cast();
         LOG.log(Level.INFO, "Preparing to create cast {0}...", currentCast);
         initializeEmbeddableKey();
     }
@@ -89,7 +89,7 @@ public class CastController implements Serializable {
         persist(PersistAction.UPDATE, ResourceBundle.getBundle("/Bundle").getString("CastUpdated"));
     }
 
-    public void destroy(CastCall cast) {
+    public void destroy(Cast cast) {
         setCurrentCast(cast);
         destroy();
     }
@@ -102,7 +102,7 @@ public class CastController implements Serializable {
         }
     }
 
-    public List<CastCall> getCasts() {
+    public List<Cast> getCasts() {
         if (casts == null) {
             casts = getBean().findAll();
         }
@@ -137,15 +137,15 @@ public class CastController implements Serializable {
         }
     }
 
-    public CastCall getCast(int id) {
+    public Cast getCast(int id) {
         return getBean().find(id);
     }
 
-    public List<CastCall> getItemsAvailableSelectMany() {
+    public List<Cast> getItemsAvailableSelectMany() {
         return getBean().findAll();
     }
 
-    public List<CastCall> getItemsAvailableSelectOne() {
+    public List<Cast> getItemsAvailableSelectOne() {
         return getBean().findAll();
     }
 
@@ -153,7 +153,7 @@ public class CastController implements Serializable {
         return JsfUtil.getSelectItems(Arrays.asList(Gender.values()), true);
     }
 
-    @FacesConverter(forClass = CastCall.class)
+    @FacesConverter(forClass = Cast.class)
     public static class CastControllerConverter implements Converter {
 
         @Override
@@ -183,11 +183,11 @@ public class CastController implements Serializable {
             if (object == null) {
                 return null;
             }
-            if (object instanceof CastCall) {
-                CastCall o = (CastCall) object;
+            if (object instanceof Cast) {
+                Cast o = (Cast) object;
                 return getStringKey(o.getId());
             } else {
-                Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "object {0} is of type {1}; expected type: {2}", new Object[]{object, object.getClass().getName(), CastCall.class.getName()});
+                Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "object {0} is of type {1}; expected type: {2}", new Object[]{object, object.getClass().getName(), Cast.class.getName()});
                 return null;
             }
         }

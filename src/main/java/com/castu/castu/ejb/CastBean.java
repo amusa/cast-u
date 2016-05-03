@@ -5,7 +5,7 @@
  */
 package com.castu.castu.ejb;
 
-import com.castu.castu.entity.CastCall;
+import com.castu.castu.entity.Cast;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -15,7 +15,7 @@ import javax.persistence.PersistenceContext;
  * @author 18359
  */
 @Stateless
-public class CastBean extends AbstractBean<CastCall> {
+public class CastBean extends AbstractBean<Cast> {
 
     @PersistenceContext(unitName = "castuPU")
     private EntityManager em;
@@ -26,7 +26,7 @@ public class CastBean extends AbstractBean<CastCall> {
     }
 
     public CastBean() {
-        super(CastCall.class);
+        super(Cast.class);
     }
     
 }

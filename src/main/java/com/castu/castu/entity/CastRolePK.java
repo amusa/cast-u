@@ -18,7 +18,7 @@ public class CastRolePK implements Serializable {
     private static final long serialVersionUID = 6870549122103307264L;
     
     private Integer sn;
-    private Long castId;
+    private Cast cast;
 
     public Integer getSn() {
         return sn;
@@ -28,19 +28,19 @@ public class CastRolePK implements Serializable {
         this.sn = sn;
     }
 
-    public Long getCastId() {
-        return castId;
+    public Cast getCast() {
+        return cast;
     }
 
-    public void setCastId(Long castId) {
-        this.castId = castId;
+    public void setCast(Cast cast) {
+        this.cast = cast;
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 23 * hash + (this.sn != null ? this.sn.hashCode() : 0);
-        hash = 23 * hash + (this.castId != null ? this.castId.hashCode() : 0);
+        int hash = 3;
+        hash = 43 * hash + (this.sn != null ? this.sn.hashCode() : 0);
+        hash = 43 * hash + (this.cast != null ? this.cast.hashCode() : 0);
         return hash;
     }
 
@@ -59,11 +59,14 @@ public class CastRolePK implements Serializable {
         if (this.sn != other.sn && (this.sn == null || !this.sn.equals(other.sn))) {
             return false;
         }
-        if (this.castId != other.castId && (this.castId == null || !this.castId.equals(other.castId))) {
+        if (this.cast != other.cast && (this.cast == null || !this.cast.equals(other.cast))) {
             return false;
         }
         return true;
     }
+
+   
+
     
     
     

@@ -18,8 +18,8 @@ import javax.persistence.OneToOne;
  *
  * @author 18359
  */
-@Entity(name = "CAST_CALL")
-public class CastCall implements Serializable {
+@Entity(name = "CAST")
+public class Cast implements Serializable {
 
     private static final long serialVersionUID = 8582971010372350638L;
 
@@ -45,7 +45,7 @@ public class CastCall implements Serializable {
     private List<CastQuestion> castQuestions;
     private List<CastRole> castRoles;
 
-    public CastCall() {
+    public Cast() {
     }
 
     @Id
@@ -204,7 +204,7 @@ public class CastCall implements Serializable {
         this.feesDetails = feesDetails;
     }
     
-    @OneToMany(mappedBy = "castCall")
+    @OneToMany(mappedBy = "cast")
     public List<CastQuestion> getCastQuestions() {
         return castQuestions;
     }
@@ -213,7 +213,7 @@ public class CastCall implements Serializable {
         this.castQuestions = castQuestions;
     }
     
-    @OneToMany(mappedBy = "castCall")
+    @OneToMany(mappedBy = "cast")
     public List<CastRole> getCastRoles() {
         return castRoles;
     }
@@ -241,7 +241,7 @@ public class CastCall implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final CastCall other = (CastCall) obj;
+        final Cast other = (Cast) obj;
         if (this.id != other.id && (this.id == null || !this.id.equals(other.id))) {
             return false;
         }

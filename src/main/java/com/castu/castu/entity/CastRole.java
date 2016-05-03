@@ -23,13 +23,12 @@ public class CastRole implements Serializable {
     private static final long serialVersionUID = -8520822315680989050L;
 
     private Integer sn;
-    private Long castId;
+    private Cast cast;
     private String title;
     private Gender gender;
     private Integer ageMin;
     private Integer ageMax;
     private String addtionalInfo;
-    private CastCall castCall;
 
     @Id
     public Integer getSn() {
@@ -41,12 +40,13 @@ public class CastRole implements Serializable {
     }
 
     @Id
-    public Long getCastId() {
-        return castId;
+    @ManyToOne
+    public Cast getCast() {
+        return cast;
     }
 
-    public void setCastId(Long castId) {
-        this.castId = castId;
+    public void setCast(Cast cast) {
+        this.cast = cast;
     }
 
     public String getTitle() {
@@ -89,21 +89,11 @@ public class CastRole implements Serializable {
         this.addtionalInfo = addtionalInfo;
     }
 
-    @MapsId("castId")
-    @ManyToOne
-    public CastCall getCastCall() {
-        return castCall;
-    }
-
-    public void setCastCall(CastCall castCall) {
-        this.castCall = castCall;
-    }
-
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 37 * hash + (this.sn != null ? this.sn.hashCode() : 0);
-        hash = 37 * hash + (this.castId != null ? this.castId.hashCode() : 0);
+        hash = 41 * hash + (this.sn != null ? this.sn.hashCode() : 0);
+        hash = 41 * hash + (this.cast != null ? this.cast.hashCode() : 0);
         return hash;
     }
 
@@ -122,10 +112,12 @@ public class CastRole implements Serializable {
         if (this.sn != other.sn && (this.sn == null || !this.sn.equals(other.sn))) {
             return false;
         }
-        if (this.castId != other.castId && (this.castId == null || !this.castId.equals(other.castId))) {
+        if (this.cast != other.cast && (this.cast == null || !this.cast.equals(other.cast))) {
             return false;
         }
         return true;
     }
+
+    
 
 }
