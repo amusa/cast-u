@@ -16,7 +16,6 @@ import com.castu.castu.entity.Gender;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -68,12 +67,10 @@ public class CastController implements Serializable {
     }
 
     public Category getCurrentCategory() {
-        LOG.log(Level.INFO, "===========Testing: headline {0}...", new Object[]{currentCast.getHeadline()});
         Category category = null;
         if (currentCast != null) {
             category = currentCast.getCategory();
         }
-        LOG.log(Level.INFO, "Returning category {0} for current cast {1}...", new Object[]{category, currentCast});
         return category;
     }
 
