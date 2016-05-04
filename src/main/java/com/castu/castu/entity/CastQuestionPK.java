@@ -16,9 +16,9 @@ import javax.persistence.Embeddable;
 public class CastQuestionPK implements Serializable {
 
     private static final long serialVersionUID = -7116880114896967698L;
-    
+
     private Integer sn;
-    private Long castCallId;
+    private Cast cast;
 
     public Integer getSn() {
         return sn;
@@ -28,19 +28,19 @@ public class CastQuestionPK implements Serializable {
         this.sn = sn;
     }
 
-    public Long getCastCallId() {
-        return castCallId;
+    public Cast getCast() {
+        return cast;
     }
 
-    public void setCastCallId(Long castCallId) {
-        this.castCallId = castCallId;
+    public void setCast(Cast cast) {
+        this.cast = cast;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 53 * hash + (this.sn != null ? this.sn.hashCode() : 0);
-        hash = 53 * hash + (this.castCallId != null ? this.castCallId.hashCode() : 0);
+        hash = 79 * hash + (this.sn != null ? this.sn.hashCode() : 0);
+        hash = 79 * hash + (this.cast != null ? this.cast.hashCode() : 0);
         return hash;
     }
 
@@ -59,12 +59,10 @@ public class CastQuestionPK implements Serializable {
         if (this.sn != other.sn && (this.sn == null || !this.sn.equals(other.sn))) {
             return false;
         }
-        if (this.castCallId != other.castCallId && (this.castCallId == null || !this.castCallId.equals(other.castCallId))) {
+        if (this.cast != other.cast && (this.cast == null || !this.cast.equals(other.cast))) {
             return false;
         }
         return true;
     }
 
-    
-    
 }

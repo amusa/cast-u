@@ -18,8 +18,8 @@ import javax.persistence.OneToOne;
  *
  * @author 18359
  */
-@Entity(name = "CAST_CALL")
-public class CastCall implements Serializable {
+@Entity(name = "CAST")
+public class Cast implements Serializable {
 
     private static final long serialVersionUID = 8582971010372350638L;
 
@@ -42,10 +42,13 @@ public class CastCall implements Serializable {
     private String paymentDetails;
     private Boolean feesApply;
     private String feesDetails;
+    private Integer notificationOption;
+    private String notificationEmail;
+    private Integer notificationFrequency;
     private List<CastQuestion> castQuestions;
     private List<CastRole> castRoles;
 
-    public CastCall() {
+    public Cast() {
     }
 
     @Id
@@ -203,8 +206,32 @@ public class CastCall implements Serializable {
     public void setFeesDetails(String feesDetails) {
         this.feesDetails = feesDetails;
     }
-    
-    @OneToMany(mappedBy = "castCall")
+
+    public Integer getNotificationOption() {
+        return notificationOption;
+    }
+
+    public void setNotificationOption(Integer notificationOption) {
+        this.notificationOption = notificationOption;
+    }
+
+    public String getNotificationEmail() {
+        return notificationEmail;
+    }
+
+    public void setNotificationEmail(String notificationEmail) {
+        this.notificationEmail = notificationEmail;
+    }
+
+    public Integer getNotificationFrequency() {
+        return notificationFrequency;
+    }
+
+    public void setNotificationFrequency(Integer notificationFrequency) {
+        this.notificationFrequency = notificationFrequency;
+    }
+
+    @OneToMany(mappedBy = "cast")
     public List<CastQuestion> getCastQuestions() {
         return castQuestions;
     }
@@ -212,8 +239,8 @@ public class CastCall implements Serializable {
     public void setCastQuestions(List<CastQuestion> castQuestions) {
         this.castQuestions = castQuestions;
     }
-    
-    @OneToMany(mappedBy = "castCall")
+
+    @OneToMany(mappedBy = "cast")
     public List<CastRole> getCastRoles() {
         return castRoles;
     }
@@ -221,7 +248,6 @@ public class CastCall implements Serializable {
     public void setCastRoles(List<CastRole> castRoles) {
         this.castRoles = castRoles;
     }
-
 
     @Override
     public int hashCode() {
@@ -241,7 +267,7 @@ public class CastCall implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final CastCall other = (CastCall) obj;
+        final Cast other = (Cast) obj;
         if (this.id != other.id && (this.id == null || !this.id.equals(other.id))) {
             return false;
         }

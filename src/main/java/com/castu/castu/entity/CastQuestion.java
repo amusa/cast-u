@@ -23,8 +23,7 @@ public class CastQuestion implements Serializable {
     private static final long serialVersionUID = -5634900106047587059L;
 
     private Integer sn;
-    private Long castCallId;
-    private CastCall castCall;
+    private Cast cast;
     private String question;
 
     public CastQuestion() {
@@ -40,22 +39,13 @@ public class CastQuestion implements Serializable {
     }
 
     @Id
-    public Long getCastCallId() {
-        return castCallId;
-    }
-
-    public void setCastCallId(Long castCallId) {
-        this.castCallId = castCallId;
-    }
-
-    @MapsId("castCallId")
     @ManyToOne
-    public CastCall getCastCall() {
-        return castCall;
+    public Cast getCast() {
+        return cast;
     }
 
-    public void setCastCall(CastCall castCall) {
-        this.castCall = castCall;
+    public void setCast(Cast cast) {
+        this.cast = cast;
     }
 
     public String getQuestion() {
@@ -64,6 +54,35 @@ public class CastQuestion implements Serializable {
 
     public void setQuestion(String question) {
         this.question = question;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 97 * hash + (this.sn != null ? this.sn.hashCode() : 0);
+        hash = 97 * hash + (this.cast != null ? this.cast.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final CastQuestion other = (CastQuestion) obj;
+        if (this.sn != other.sn && (this.sn == null || !this.sn.equals(other.sn))) {
+            return false;
+        }
+        if (this.cast != other.cast && (this.cast == null || !this.cast.equals(other.cast))) {
+            return false;
+        }
+        return true;
     }
 
 }
