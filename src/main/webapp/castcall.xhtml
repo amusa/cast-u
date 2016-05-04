@@ -11,7 +11,7 @@
         <ui:composition template="./WEB-INF/castu-template-main.xhtml">
 
             <ui:define name="title">
-                Title
+                List an Audition or Job for free
             </ui:define>
 
             <ui:define name="header-top">
@@ -40,14 +40,14 @@
                 <div class="section ">
                     <div class="container">
                         <h2>List an Audition or Job - free</h2>                        
-                        <h:form id="UserForm" role="form">
+                        <h:form id="CastForm" role="form">
                             <h4>Headline</h4>
                             <small>e.g. Two actors required for supporting roles in thriller feature film</small>
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <input  type="text" class="form-control" jsf:id="headline">
-                                            <!-- <f:ajax/> -->
+                                        <input jsf:value="#{castController.currentCast.headline}"  type="text" class="form-control" jsf:id="headline">
+                                            <f:ajax/>
                                         </input>
                                     </div>
                                 </div>                                
@@ -56,30 +56,19 @@
                             <h4>Category</h4>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <div class="form-group">
-                                        <!--                                        <label class="control-label" jsf:for="category">Category</label>-->
-                                        <select class="form-control" size="10">	
-                                            <option value="">--- Please Select ---</option>
-                                            <option value="1">Actors and Extras wanted</option>
-                                            <option value="2">Dancers wanted</option>
-                                            <option value="3">Film &amp; Stage Crew wanted</option>
-                                            <option value="4">Film &amp; Stage Crew wanted</option>
-                                            <option value="5">Musicians wanted</option>
-                                            <option value="6">Photographers wanted</option>
-                                        </select>
+                                    <div class="form-group">                                      
+                                        <h:selectOneListbox  converter="#{categoryConverter}"  id="category" size="10" class="form-control" value="#{castController.currentCast.category}">	
+                                            <f:selectItems value="#{castController.categorySelectOne}"/>
+                                            <f:ajax event="change" render="subcategory"/>
+                                        </h:selectOneListbox>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group"> 
-                                        <select class="form-control" size="10">	
-                                            <option value="">--- Please Select ---</option>
-                                            <option value="2">Audiences</option>
-                                            <option value="2">TV &amp; Reality</option>
-                                            <option value="2">Game Shows</option>
-                                            <option value="2">French Tutor</option>
-                                            <option value="2">Cooking class</option>
-                                            <option value="2">Book Club</option>
-                                        </select>
+                                        <h:selectOneListbox converter="#{subCategoryConverter}" id="subcategory" size="10" class="form-control" value="#{castController.currentCast.subcategory}">	
+                                            <f:selectItems value="#{castController.subcategorySelectOne}"/>
+                                            <f:ajax/>
+                                        </h:selectOneListbox>
                                     </div>
                                 </div>
 
@@ -90,8 +79,8 @@
                                 <div class="col-md-2">
                                     <div class="checkbox">
                                         <label>
-                                            <input jsf:id="phoneNumber" type="checkbox" >
-
+                                            <input jsf:id="phoneNumber" type="checkbox" jsf:value="#{castController.currentCast.phoneNumberRequired}">
+                                                <f:ajax/>
                                             </input>
                                             Phone Number
                                         </label>
@@ -100,8 +89,8 @@
                                 <div class="col-md-2">
                                     <div class="checkbox">
                                         <label>
-                                            <input jsf:id="photo" type="checkbox" >
-
+                                            <input jsf:id="photo" type="checkbox" jsf:value="#{castController.currentCast.photoRequired}">
+                                                <f:ajax/>
                                             </input>
                                             Photo
                                         </label>
@@ -113,12 +102,13 @@
                             <div class="row" >
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <h:selectOneMenu id="country" class="form-control" >
+                                        <h:selectOneMenu id="country" class="form-control" value="#{castController.currentCast.countryCode}">
                                             <f:selectItem itemValue="" itemLabel="--- Please Select ---"/>
                                             <f:selectItem itemValue="Nigeria" itemLabel="Nigeria"/>
                                             <f:selectItem itemValue="Ghana" itemLabel="Ghana"/>
                                             <f:selectItem itemValue="Togo" itemLabel="Togo"/>
                                             <f:selectItem itemValue="Liberia" itemLabel="Liberia"/>
+                                            <f:ajax event="change" render="state"/>
                                         </h:selectOneMenu>
                                     </div>
                                 </div>
@@ -126,12 +116,13 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <h:selectOneMenu id="state" class="form-control" >
+                                        <h:selectOneMenu id="state" class="form-control" value="#{castController.currentCast.regionCode}">
                                             <f:selectItem itemValue="" itemLabel="--- Please Select ---"/>
                                             <f:selectItem itemValue="Abia" itemLabel="Abia"/>
                                             <f:selectItem itemValue="Abuja" itemLabel="Abuja"/>
                                             <f:selectItem itemValue="Nasarawa" itemLabel="Nasarawa"/>
-                                            <f:selectItem itemValue="Lagos" itemLabel="Lagos"/>    
+                                            <f:selectItem itemValue="Lagos" itemLabel="Lagos"/> 
+                                            <f:ajax/>
                                         </h:selectOneMenu>
                                     </div>
                                 </div>
@@ -143,13 +134,13 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <h:inputTextarea id="description" rows="6" class="form-control" >
-
+                                        <h:inputTextarea id="description" rows="6" class="form-control" value="#{castController.currentCast.description}">
+                                            <f:ajax/>
                                         </h:inputTextarea>
                                     </div>
                                 </div>
                             </div>
-                            <small>3210 characters remaining</small>
+                            <small><strong>3210</strong> characters remaining</small>
                             <hr/>
 
                             <p>By continuing, you confirm that you have read and agree with CastU's <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy</a>.</p>
@@ -157,13 +148,13 @@
                             <div class="row">
                                 <div class="col-md-offset-5 col-md-2">
                                     <div class="btn-group">
-                                        <button id="nextButton" jsf:outcome="roleDetails"  class="btn btn-group btn-default btn-animated">Next <i class="fa fa-angle-double-right"></i>
+                                        <button id="nextButton" jsf:outcome="#{castController.toRoleDetails()}"  class="btn btn-group btn-default btn-animated">Next <i class="fa fa-angle-double-right"></i>
 
                                         </button>
                                     </div>
                                 </div>
                             </div>
-                             
+
                         </h:form>
 
                     </div>

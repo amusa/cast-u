@@ -6,6 +6,7 @@
 package com.castu.castu.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -247,6 +248,13 @@ public class Cast implements Serializable {
 
     public void setCastRoles(List<CastRole> castRoles) {
         this.castRoles = castRoles;
+    }
+
+    public void addCastRole(CastRole castRole) {
+        if (castRoles == null) {
+            castRoles = new ArrayList<CastRole>();
+        }
+        castRoles.add(castRole);
     }
 
     @Override

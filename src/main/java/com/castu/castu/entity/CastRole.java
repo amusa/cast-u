@@ -25,7 +25,9 @@ public class CastRole implements Serializable {
     private Integer sn;
     private Cast cast;
     private String title;
-    private Gender gender;
+//    private Gender gender;
+    private Boolean maleRole;
+    private Boolean femaleRole;
     private Integer ageMin;
     private Integer ageMax;
     private String addtionalInfo;
@@ -57,12 +59,27 @@ public class CastRole implements Serializable {
         this.title = title;
     }
 
-    public Gender getGender() {
-        return gender;
+//    public Gender getGender() {
+//        return gender;
+//    }
+//
+//    public void setGender(Gender gender) {
+//        this.gender = gender;
+//    }
+    public Boolean getMaleRole() {
+        return maleRole;
     }
 
-    public void setGender(Gender gender) {
-        this.gender = gender;
+    public void setMaleRole(Boolean maleRole) {
+        this.maleRole = maleRole;
+    }
+
+    public Boolean getFemaleRole() {
+        return femaleRole;
+    }
+
+    public void setFemaleRole(Boolean femaleRole) {
+        this.femaleRole = femaleRole;
     }
 
     public Integer getAgeMin() {
@@ -117,7 +134,5 @@ public class CastRole implements Serializable {
         }
         return true;
     }
-
-    
 
 }

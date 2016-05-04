@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <body>
+
+        <ui:composition template="./WEB-INF/castu-template-main.xhtml">
+
+            <ui:define name="title">
+                Role Summary
+            </ui:define>
+
+            <ui:define name="header-top">
+
+            </ui:define>
+
+            <ui:define name="header-dropdown">
+
+            </ui:define>
+
+            <ui:define name="header-nav">
+
+            </ui:define>
+
+            <ui:define name="banner">
+
+            </ui:define>
+
+            <ui:define name="breadcrumb">
+
+            </ui:define>
+
+            <ui:define name="main-content">
+                <!-- section start -->
+                <!-- ================ -->
+                <div class="section ">
+                    <div class="container">
+                        <h2>Role Summary</h2>                        
+                        <h:form id="RoleSummaryForm" role="form"> 
+                            <ui:repeat value="#{castController.currentCast.castRoles}" var="role">
+                                <h3>#{role.title}</h3>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <h4>Gender</h4>
+                                            <label>  
+                                                <c:if test="#{role.maleRole}">
+                                                    Male
+                                                </c:if>
+
+                                                <c:if test="#{role.maleRole and role.femaleRole}">
+                                                    or
+                                                </c:if>
+
+                                                <c:if test="#{role.femaleRole}">
+                                                    Female
+                                                </c:if>
+                                                #{role.maleRole}
+                                            </label>
+                                        </div>
+                                        <hr/>
+                                        <div class="form-group">
+                                            <h4>Age range</h4>
+                                            <label>                                           
+                                                #{role.ageMin}-#{role.ageMax}
+                                            </label>
+                                        </div>
+                                        <hr/>
+                                        <div class="form-group">
+                                            <h4>Description</h4>
+                                            <label>                                           
+                                                #{role.addtionalInfo}
+                                            </label>
+                                        </div>
+                                    </div>                                
+                                </div>
+                            </ui:repeat>
+
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <h:commandLink id="addRole" action="#{castController.prepareAddRole}" class="btn btn-group btn-default btn-animated"><i class="fa fa-plus-circle"></i> Add another role
+
+                                        </h:commandLink>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-offset-5 col-md-7">
+                                    <div class="btn-group">
+                                        <button id="backButton" jsf:outcome="castcall" class="btn btn-group btn-animated"><i class="fa fa-angle-double-left"></i> Back
+
+                                        </button>
+                                    </div>
+                                    <div class="btn-group">
+                                        <button id="nextButton" jsf:outcome="additionalInfo" class="btn btn-group btn-default btn-animated">Next <i class="fa fa-angle-double-right"></i>
+
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </h:form>
+
+                    </div>
+                </div>
+                <!-- section end -->
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

@@ -315,12 +315,18 @@
                                 <div class="call-to-action text-center">
                                     <div class="row">
                                         <div class="col-sm-8">
-                                            <h1 class="title">Don't Miss Out Our Offers</h1>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem quasi explicabo consequatur consectetur, a atque voluptate officiis eligendi nostrum.</p>
+                                            <h1 class="title">Looking for talents?</h1>
+                                            <p>Place a casting call to attract the best talents. It's free, why don't you try now</p>
                                         </div>
                                         <div class="col-sm-4">
                                             <br>
-                                                <p><a href="#" class="btn btn-lg btn-gray-transparent btn-animated">Learn More<i class="fa fa-arrow-right pl-20"></i></a></p>
+                                                <p> 
+                                                    <form jsf:id="callButtonForm" class="margin-clear">
+                                                        <a jsf:id="castCallButton" href="castcall.xhtml" class="btn btn-lg btn-gray-transparent btn-animated">List a job<i class="fa fa-arrow-right pl-20"></i>
+                                                            <f:ajax listener="#{castController.prepareCreate}" event="click" />
+                                                        </a>
+                                                    </form>
+                                                </p>
                                             </br>
                                         </div>
                                     </div>

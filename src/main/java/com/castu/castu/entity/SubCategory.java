@@ -56,6 +56,11 @@ public class SubCategory implements Serializable {
     }
 
     @Override
+    public String toString() {
+        return description;
+    }
+
+    @Override
     public int hashCode() {
         int hash = 7;
         hash = 11 * hash + (this.id != null ? this.id.hashCode() : 0);

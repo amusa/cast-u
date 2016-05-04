@@ -7,11 +7,16 @@ package com.castu.castu.controller;
 
 import com.castu.castu.controller.JsfUtil.PersistAction;
 import com.castu.castu.ejb.CastBean;
+import com.castu.castu.ejb.CategoryBean;
+import com.castu.castu.ejb.SubCategoryBean;
 import com.castu.castu.entity.Cast;
+import com.castu.castu.entity.CastRole;
+import com.castu.castu.entity.Category;
 import com.castu.castu.entity.Gender;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -38,8 +43,15 @@ public class CastController implements Serializable {
 
     @EJB
     private CastBean castBean;
+    @EJB
+    private CategoryBean categoryBean;
+    @EJB
+    private SubCategoryBean subCategoryBean;
+
     private Cast currentCast;
     private List<Cast> casts;
+    private List<CastRole> castRoles;
+    private CastRole currentCastRole;
 
     /**
      * Creates a new instance of UserController
@@ -53,6 +65,16 @@ public class CastController implements Serializable {
 
     public void setCurrentCast(Cast currentCast) {
         this.currentCast = currentCast;
+    }
+
+    public Category getCurrentCategory() {
+        LOG.log(Level.INFO, "===========Testing: headline {0}...", new Object[]{currentCast.getHeadline()});
+        Category category = null;
+        if (currentCast != null) {
+            category = currentCast.getCategory();
+        }
+        LOG.log(Level.INFO, "Returning category {0} for current cast {1}...", new Object[]{category, currentCast});
+        return category;
     }
 
     protected void setEmbeddableKeys() {
@@ -109,6 +131,48 @@ public class CastController implements Serializable {
         return casts;
     }
 
+    public List<CastRole> getCastRoles() {
+        return castRoles;
+    }
+
+    public void setCastRoles(List<CastRole> castRoles) {
+        this.castRoles = castRoles;
+    }
+
+    public CastRole getCurrentCastRole() {
+        return currentCastRole;
+    }
+
+    public void setCurrentCastRole(CastRole currentCastRole) {
+        this.currentCastRole = currentCastRole;
+    }
+
+    public String prepareAddRole() {
+        currentCastRole = new CastRole();
+        return "role-add";
+    }
+
+    public String cancelRoleAdd() {
+        currentCastRole = null;
+        return "role-summary";
+    }
+
+    public String addRole() {
+        if (currentCast != null) {
+            currentCast.addCastRole(currentCastRole);
+        }
+
+        return "role-summary";
+    }
+
+    public String toRoleDetails() {
+        if (currentCast.getCastRoles() == null || currentCast.getCastRoles().isEmpty()) {
+            return prepareAddRole();
+        }
+        return "role-summary";
+
+    }
+
     private void persist(PersistAction persistAction, String successMessage) {
         if (currentCast != null) {
             setEmbeddableKeys();
@@ -141,16 +205,26 @@ public class CastController implements Serializable {
         return getBean().find(id);
     }
 
-    public List<Cast> getItemsAvailableSelectMany() {
-        return getBean().findAll();
-    }
-
-    public List<Cast> getItemsAvailableSelectOne() {
-        return getBean().findAll();
+    public SelectItem[] getCastSelectOne() {
+        return JsfUtil.getSelectItems(getBean().findAll(), true);
     }
 
     public SelectItem[] getGenderSelectOne() {
         return JsfUtil.getSelectItems(Arrays.asList(Gender.values()), true);
+    }
+
+    public SelectItem[] getCategorySelectOne() {
+        return JsfUtil.getSelectItems(categoryBean.findAll(), true);
+    }
+
+    public SelectItem[] getSubcategorySelectOne() {
+        Category selected = getCurrentCategory();
+
+        if (selected != null) {
+            return JsfUtil.getSelectItems(subCategoryBean.findByCategory(selected), true);
+        }
+
+        return null;
     }
 
     @FacesConverter(forClass = Cast.class)

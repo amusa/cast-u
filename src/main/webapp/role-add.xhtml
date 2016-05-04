@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./WEB-INF/castu-template-main.xhtml">
+
+            <ui:define name="title">
+                Role details
+            </ui:define>
+
+            <ui:define name="header-top">
+
+            </ui:define>
+
+            <ui:define name="header-dropdown">
+
+            </ui:define>
+
+            <ui:define name="header-nav">
+
+            </ui:define>
+
+            <ui:define name="banner">
+
+            </ui:define>
+
+            <ui:define name="breadcrumb">
+
+            </ui:define>
+
+            <ui:define name="main-content">
+                <!-- section start -->
+                <!-- ================ -->
+                <div class="section ">
+                    <div class="container">
+                        <h2>Role Details</h2>                        
+                        <h:form id="RoleForm" role="form">
+                            <h4>Role Info</h4>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label">Role title</label>
+                                        <small>Describe one role only, you can add more roles on the next step.</small>
+                                        <input  type="text" class="form-control" jsf:id="roleTitle" jsf:value="#{castController.currentCastRole.title}">
+                                            <f:ajax/> 
+                                        </input>
+                                    </div>
+                                </div>                                
+                            </div>
+                            <hr/>
+                            <h4>Gender and age</h4>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input jsf:id="male" type="checkbox" jsf:value="#{castController.currentCastRole.maleRole}">
+                                                <f:ajax/>
+                                            </input>
+                                            Male
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input jsf:id="female" type="checkbox" jsf:value="#{castController.currentCastRole.femaleRole}">
+                                                <f:ajax/>
+                                            </input>
+                                            Female
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <!--                                        <label class="control-label" jsf:for="category">Category</label>-->
+                                        <h:selectOneMenu  class="form-control" value="#{castController.currentCastRole.ageMin}">	
+                                            <f:selectItems value="#{generalController.ageSelection}"/>
+                                            <f:ajax/>                                            
+                                        </h:selectOneMenu>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <h:selectOneMenu  class="form-control" value="#{castController.currentCastRole.ageMax}">	
+                                            <f:selectItems value="#{generalController.ageSelection}"/>
+                                            <f:ajax/>                                            
+                                        </h:selectOneMenu>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr/>
+                            <h4>Additional info</h4>
+                            <small>Include as much information as you can (e.g. character traits and requirements) to receive more relevant applications.
+                                Please be as detailed as possible.</small>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <h:inputTextarea id="description" rows="4" class="form-control" value="#{castController.currentCastRole.addtionalInfo}">
+                                            <f:ajax/>
+                                        </h:inputTextarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <small><strong>500</strong> characters remaining</small>
+                            <div class="row">
+                                <div class="col-md-offset-5 col-md-7">
+                                    <div class="btn-group">
+                                        <h:commandLink id="cancelButton" action="#{castController.cancelRoleAdd}" class="btn btn-group btn-animated">Cancel <i class="fa fa-trash"></i>
+
+                                        </h:commandLink>
+                                    </div>
+                                    <div class="btn-group">
+                                        <h:commandLink id="doneButton" action="#{castController.addRole}" class="btn btn-group btn-default btn-animated">Done <i class="fa fa-check"></i>
+
+                                        </h:commandLink>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </h:form>
+
+                    </div>
+                </div>
+                <!-- section end -->
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
