@@ -187,8 +187,8 @@
                                         </button>
                                     </div>
                                     <div class="btn-group">
-                                        <h:commandLink id="nextButton" action="casting-complete" class="btn btn-group btn-default btn-animated">Run my casting call <i class="fa fa-angle-double-right"></i>
-                                            <f:ajax event="click" listener="#{castController.create}"/>
+                                        <h:commandLink id="nextButton" action="casting-complete" actionListener="#{castController.create}" class="btn btn-group btn-default btn-animated">Run my casting call <i class="fa fa-angle-double-right"></i>
+                                            
                                         </h:commandLink>
                                     </div>
                                 </div>
