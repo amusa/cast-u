@@ -4,7 +4,8 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:jsf="http://xmlns.jcp.org/jsf"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 
     <body>
 
@@ -40,43 +41,52 @@
                 <div class="section ">
                     <div class="container">
                         <h2>Confirm your casting call</h2>                        
-                        <h:form id="UserForm" role="form">
+                        <h:form id="SummaryForm" role="form">
                             <h3>Listing detail</h3>                            
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                     <h4>Title</h4>
                                     <div class="form-group">
-
                                         <label>                                           
-
+                                            #{castController.currentCast.headline}
                                         </label>
                                     </div>
                                     <hr/>
                                     <h4>Category</h4>
                                     <div class="form-group">                                        
                                         <label>                                           
-
+                                            #{castController.currentCast.category.description}>#{castController.currentCast.subcategory.description}
                                         </label>
                                     </div>
                                     <hr/>
                                     <h4>Compulsory</h4>
                                     <div class="form-group">                                        
                                         <label>                                           
+                                            <c:if test="#{castController.currentCast.photoRequired}">
+                                                Photo required
+                                            </c:if>
 
+                                            <c:if test="#{castController.currentCast.photoRequired and castController.currentCast.phoneNumberRequired}">
+                                                , 
+                                            </c:if>
+
+                                            <c:if test="#{castController.currentCast.phoneNumberRequired}">
+                                                Phone number required
+                                            </c:if>      
                                         </label>
                                     </div>
                                     <hr/>
                                     <h4>Audition location</h4>
                                     <div class="form-group">                                       
                                         <label>                                           
-
+                                            #{castController.currentCast.regionCode}, #{castController.currentCast.countryCode}
                                         </label>
                                     </div>
                                     <hr/>
                                     <h4>Project Description</h4>
                                     <div class="form-group">
                                         <label>                                           
-
+                                            #{castController.currentCast.description}
                                         </label>
                                     </div>
                                 </div>                                
@@ -84,100 +94,90 @@
                             <hr/>
                             <h4>Additional Information</h4>
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                     <div class="form-group">
                                         <h4>End date</h4>
                                         <label>                                           
-
+                                            #{castController.currentCast.endDay}, #{castController.currentCast.endMonth}
                                         </label>
                                     </div>
                                     <hr/>
                                     <div class="form-group">
                                         <h4>People can apply from</h4>
                                         <label>                                           
-
+                                            #{castController.currentCast.applyLocation}
                                         </label>
                                     </div>
                                     <hr/>
                                     <div class="form-group">
                                         <h4>Questions for applicants</h4>
-                                        <label>                                           
+                                        <ui:repeat id="questions" value="#{castController.currentCast.castQuestions}" var="quest">
+                                            <label>                                           
+                                                #{quest.question}
+                                            </label>                                            
+                                        </ui:repeat>
 
-                                        </label>
                                     </div>                                    
                                 </div>                                
                             </div>
                             <hr/>
-                            <h4>Notifications</h4>
+                            <h3>Notifications</h3>
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                     <div class="form-group">
                                         <h4>Notifications</h4>
                                         <label>                                           
-
+                                            #{castController.currentCast.notificationFrequency}
                                         </label>
                                     </div>
                                     <hr/>
                                     <div class="form-group">
                                         <h4>Applications sent to</h4>
                                         <label>                                           
-
+                                            #{castController.currentCast.notificationEmail}
                                         </label>
                                     </div>
                                 </div>                                
                             </div>
                             <hr/>
-                            <h4>Role1</h4>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <h4>Gender</h4>
-                                        <label>                                           
+                            <ui:repeat value="#{castController.currentCast.castRoles}" var="role">
+                                <h3>#{role.title}</h3>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <h4>Gender</h4>
+                                            <label>  
+                                                <c:if test="#{role.maleRole}">
+                                                    Male
+                                                </c:if>
 
-                                        </label>
-                                    </div>
-                                    <hr/>
-                                    <div class="form-group">
-                                        <h4>Age range</h4>
-                                        <label>                                           
+                                                <c:if test="#{role.maleRole and role.femaleRole}">
+                                                    or
+                                                </c:if>
 
-                                        </label>
-                                    </div>
-                                    <hr/>
-                                    <div class="form-group">
-                                        <h4>Description</h4>
-                                        <label>                                           
-
-                                        </label>
-                                    </div>
-                                </div>                                
-                            </div>
+                                                <c:if test="#{role.femaleRole}">
+                                                    Female
+                                                </c:if>                                                
+                                            </label>
+                                        </div>
+                                        <hr/>
+                                        <div class="form-group">
+                                            <h4>Age range</h4>
+                                            <label>                                           
+                                                #{role.ageMin}-#{role.ageMax}
+                                            </label>
+                                        </div>
+                                        <hr/>
+                                        <div class="form-group">
+                                            <h4>Description</h4>
+                                            <label>                                           
+                                                #{role.addtionalInfo}
+                                            </label>
+                                        </div>
+                                    </div>                                
+                                </div>
+                            </ui:repeat>
                             <hr/>
-                            <h4>Role2</h4>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <h4>Gender</h4>
-                                        <label>                                           
-
-                                        </label>
-                                    </div>
-                                    <hr/>
-                                    <div class="form-group">
-                                        <h4>Age range</h4>
-                                        <label>                                           
-
-                                        </label>
-                                    </div>
-                                    <hr/>
-                                    <div class="form-group">
-                                        <h4>Description</h4>
-                                        <label>                                           
-
-                                        </label>
-                                    </div>
-                                </div>                                
-                            </div>
                             <div class="row">
                                 <div class="col-md-offset-5 col-md-7">
                                     <div class="btn-group">
