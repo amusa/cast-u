@@ -42,7 +42,7 @@
                     <div class="container">
                         <h2>Role Summary</h2>                        
                         <h:form id="RoleSummaryForm" role="form"> 
-                            <ui:repeat value="#{castController.currentCast.castRoles}" var="role">
+                            <ui:repeat value="#{castController.castRoles}" var="role">
                                 <h3>#{role.title}</h3>
                                 <div class="row">
                                     <div class="col-md-6">
@@ -98,7 +98,7 @@
                                     </div>
                                     <div class="btn-group">
                                         <a id="nextButton" jsf:outcome="#{castController.toAddInfo()}" class="btn btn-group btn-default btn-animated">Next <i class="fa fa-angle-double-right"></i>
-                                           
+
                                         </a>
                                     </div>
                                 </div>

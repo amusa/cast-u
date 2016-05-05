@@ -6,9 +6,11 @@
 package com.castu.castu.entity;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 
@@ -98,6 +100,8 @@ public class CastRole implements Serializable {
         this.ageMax = ageMax;
     }
 
+    @Lob
+    @Column(length = 500)
     public String getAddtionalInfo() {
         return addtionalInfo;
     }
@@ -134,7 +138,5 @@ public class CastRole implements Serializable {
         }
         return true;
     }
-
-    
 
 }

@@ -7,6 +7,8 @@ package com.castu.castu.controller;
 
 import com.castu.castu.controller.JsfUtil.PersistAction;
 import com.castu.castu.ejb.CastBean;
+import com.castu.castu.ejb.CastQuestionBean;
+import com.castu.castu.ejb.CastRoleBean;
 import com.castu.castu.ejb.CategoryBean;
 import com.castu.castu.ejb.SubCategoryBean;
 import com.castu.castu.entity.Cast;
@@ -17,6 +19,7 @@ import com.castu.castu.enums.Gender;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -51,6 +54,7 @@ public class CastController implements Serializable {
     private Cast currentCast;
     private List<Cast> casts;
     private List<CastRole> castRoles;
+    private List<CastQuestion> castQuestions;
     private CastRole currentCastRole;
 
     /**
@@ -73,6 +77,14 @@ public class CastController implements Serializable {
             category = currentCast.getCategory();
         }
         return category;
+    }
+
+    public List<CastQuestion> getCastQuestions() {
+        return castQuestions;
+    }
+
+    public void setCastQuestions(List<CastQuestion> castQuestions) {
+        this.castQuestions = castQuestions;
     }
 
     protected void setEmbeddableKeys() {
@@ -155,24 +167,32 @@ public class CastController implements Serializable {
         return "role-summary";
     }
 
-    public String addRole() {
-        if (currentCast != null) {
-            currentCast.addCastRole(currentCastRole);
+    public String addCastRole() {
+        if (castRoles == null) {
+            castRoles = new ArrayList<>();
         }
 
+        int sn = castRoles.size() + 1; //TODO:check! can be buggy!
+        currentCastRole.setSn(sn);
+        currentCastRole.setCast(currentCast);
+        castRoles.add(currentCastRole);
         return "role-summary";
     }
 
-    public void addQuestion() {
+    public void addCastQuestion() {
         LOG.log(Level.INFO, "Adding quesiton...");
-        if (currentCast != null) {
-            LOG.log(Level.INFO, "Current cast not null...");
-            CastQuestion question = new CastQuestion();
-            int sn = currentCast.getCastQuestions() != null ? currentCast.getCastQuestions().size() + 1 : 1; //TODO:check! can be buggy!
-            LOG.log(Level.INFO, "Question S/N is {0}...", sn);
-            question.setSn(sn);
-            currentCast.addCastQuestion(question);
+        int sn;
+
+        if (castQuestions == null) {
+            castQuestions = new ArrayList<>();
         }
+
+        sn = castQuestions != null ? castQuestions.size() + 1 : 1; //TODO:check! can be buggy!
+        LOG.log(Level.INFO, "Question S/N is {0}...", sn);
+        CastQuestion question = new CastQuestion();
+        question.setSn(sn);
+        question.setCast(currentCast);
+        castQuestions.add(question);
     }
 
     public String toRoleDetails() {
@@ -182,21 +202,31 @@ public class CastController implements Serializable {
         return "role-summary";
 
     }
-    
-    public String toAddInfo() {
-        addQuestion();
-        return "additionalInfo";
 
+    public String toAddInfo() {
+        addCastQuestion();
+        return "additionalInfo";
     }
 
     private void persist(PersistAction persistAction, String successMessage) {
         if (currentCast != null) {
-            setEmbeddableKeys();
+            //setEmbeddableKeys();
+            doCrossRefs();
             try {
-                if (persistAction != PersistAction.DELETE) {
-                    getBean().edit(currentCast);
-                } else {
-                    getBean().remove(currentCast);
+                if (null != persistAction) {
+                    switch (persistAction) {
+                        case UPDATE:
+                            getBean().edit(currentCast);
+                            break;
+                        case DELETE:
+                            getBean().remove(currentCast);
+                            break;
+                        case CREATE:
+                            getBean().create(currentCast);
+                            break;
+                        default:
+                            break;
+                    }
                 }
                 JsfUtil.addSuccessMessage(successMessage);
             } catch (EJBException ex) {
@@ -241,6 +271,11 @@ public class CastController implements Serializable {
         }
 
         return null;
+    }
+
+    private void doCrossRefs() {
+        currentCast.setCastRoles(castRoles);
+        currentCast.setCastQuestions(castQuestions);
     }
 
     @FacesConverter(forClass = Cast.class)

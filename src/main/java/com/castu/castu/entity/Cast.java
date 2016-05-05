@@ -9,10 +9,13 @@ import com.castu.castu.enums.MonthEnum;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -119,6 +122,8 @@ public class Cast implements Serializable {
         this.regionCode = regionCode;
     }
 
+    @Lob
+    @Column(length = 3000)
     public String getDescription() {
         return description;
     }
@@ -215,7 +220,7 @@ public class Cast implements Serializable {
         this.notificationFrequency = notificationFrequency;
     }
 
-    @OneToMany(mappedBy = "cast")
+    @OneToMany(mappedBy = "cast", cascade = {CascadeType.PERSIST})    
     public List<CastQuestion> getCastQuestions() {
         return castQuestions;
     }
@@ -224,27 +229,13 @@ public class Cast implements Serializable {
         this.castQuestions = castQuestions;
     }
 
-    @OneToMany(mappedBy = "cast")
+    @OneToMany(mappedBy = "cast", cascade = {CascadeType.PERSIST})
     public List<CastRole> getCastRoles() {
         return castRoles;
     }
 
     public void setCastRoles(List<CastRole> castRoles) {
         this.castRoles = castRoles;
-    }
-
-    public void addCastRole(CastRole castRole) {
-        if (castRoles == null) {
-            castRoles = new ArrayList<>();
-        }
-        castRoles.add(castRole);
-    }
-
-    public void addCastQuestion(CastQuestion question) {
-        if (castQuestions == null) {
-            castQuestions = new ArrayList<>();
-        }
-        castQuestions.add(question);
     }
 
     @Override

@@ -174,7 +174,7 @@
                             <small>E.g. Are you available to audition for the role on Friday 12 March at 5pm?</small>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <ui:repeat id="questions" value="#{castController.currentCast.castQuestions}" var="quest">
+                                    <ui:repeat id="questions" value="#{castController.castQuestions}" var="quest">
                                         <div class="form-group">
                                             <input jsf:id="question" jsf:value="#{quest.question}" type="text" class="form-control">
                                                 <f:ajax/>
@@ -187,7 +187,7 @@
                                 <div class="col-md-2 block">
                                     <div class="form-group">
                                         <h:commandLink  id="addQuestion" class="btn btn-group btn-default btn-animated">Ask another question <i class="fa fa-plus-circle"></i>
-                                            <f:ajax event="click" render="@form question" listener="#{castController.addQuestion}"/>
+                                            <f:ajax event="click" render="@form question" listener="#{castController.addCastQuestion}"/>
                                         </h:commandLink>
                                     </div>
                                 </div>
