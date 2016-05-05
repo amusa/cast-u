@@ -22,23 +22,41 @@ public class HttpSecurityConfiguration {
     public void onInit(@Observes SecurityConfigurationEvent event) {
         SecurityConfigurationBuilder builder = event.getBuilder();
 
-        LOG.log(Level.INFO,"Configuring security...");
+        LOG.log(Level.INFO, "================Configuring security================");
+//        builder
+//            .http()
+//                .allPaths()
+//                    .authenticateWith()
+//                        .form()
+//                            .authenticationUri("/login.xhtml")
+//                            .loginPage("/login.xhtml")
+//                            .errorPage("/signup.xhtml")
+//                            .restoreOriginalRequest()
+//                .forPath("/javax.faces.resource/*")
+//                    .unprotected()
+//                .forPath("/logout")
+//                    .logout()
+//                    .redirectTo("/index.xhtml")
+//                .forPath("/index.xhtml")
+//                    .unprotected();
+
         builder
-            .http()
+                .http()
                 .allPaths()
-                    .authenticateWith()
-                        .form()
-                            .authenticationUri("/login.xhtml")
-                            .loginPage("/login.xhtml")
-                            .errorPage("/signup.xhtml")
-                            .restoreOriginalRequest()
-                .forPath("/faces/*")
-                    .unprotected()
-                .forPath("/logout")
-                    .logout()
-                    .redirectTo("/index.xhtml")
-                .forPath("/index.xhtml")
-                    .unprotected();
+                .authenticateWith()
+                .form()
+                .authenticationUri("/faces/login.xhtml")
+                
+               // .loginPage("/faces/login.xhtml")
+                .errorPage("/faces/error.xhtml")
+                .restoreOriginalRequest()
+                .authorizeWith()
+                .role("administrator")
+                .forPath("/faces/logout")
+                .logout()
+                .redirectTo("/faces/index.xhtml")
+                .forPath("/faces/index.xhtml")
+                .unprotected();
     }
 
 }

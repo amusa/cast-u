@@ -5,6 +5,7 @@
  */
 package com.castu.castu.entity;
 
+import com.castu.castu.enums.Gender;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;

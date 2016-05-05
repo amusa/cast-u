@@ -3,19 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.castu.castu.entity;
+package com.castu.castu.enums;
 
 /**
  *
  * @author 18359
  */
-public enum Gender {
-    MALE("Male"),
-    FEMALE("Female");
+public enum EmailFrequency {
+    EACH("Each"),
+    SUMMARY("Summary");
 
     private final String name;
 
-    private Gender(String name) {
+    private EmailFrequency(String name) {
         this.name = name;
     }
 

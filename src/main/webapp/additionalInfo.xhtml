@@ -4,7 +4,8 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:jsf="http://xmlns.jcp.org/jsf"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
 
     <body>
 
@@ -34,52 +35,28 @@
 
             </ui:define>
 
+            <f:metadata>
+                <f:viewParam name="applyLocation" value="#{castController.currentCast.applyLocation}"/>
+                <f:viewParam name="paymentOption" value="#{castController.currentCast.paymentOption}"/>  
+                <f:viewParam name="feesOption" value="#{castController.currentCast.feesOption}"/>
+            </f:metadata>
+
             <ui:define name="main-content">
                 <!-- section start -->
                 <!-- ================ -->
                 <div class="section ">
                     <div class="container">
                         <h2>Additional Info</h2>                        
-                        <h:form id="UserForm" role="form">
+                        <h:form id="AdditionalInfoForm" role="form">
                             <h4>End date</h4>
                             <div class="row">
                                 <div class="col-md-2">
                                     <div class="form-group">
                                         <label class="control-label">Day</label>
-                                        <select class="form-control">	
-                                            <option value="0">0</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10">10</option>
-                                            <option value="11">11</option>
-                                            <option value="12">12</option>
-                                            <option value="13">13</option>
-                                            <option value="14">14</option>
-                                            <option value="15">15</option>
-                                            <option value="16">16</option>
-                                            <option value="17">17</option>
-                                            <option value="18">18</option>
-                                            <option value="19">19</option>
-                                            <option value="20">20</option>
-                                            <option value="21">21</option>
-                                            <option value="22">22</option>
-                                            <option value="23">23</option>
-                                            <option value="24">24</option>
-                                            <option value="25">25</option>
-                                            <option value="26">26</option>
-                                            <option value="27">27</option>
-                                            <option value="28">28</option>
-                                            <option value="29">29</option>
-                                            <option value="30">30</option>
-                                            <option value="31">31</option>
-                                        </select>
+                                        <h:selectOneMenu value="#{castController.currentCast.endDay}" class="form-control">	
+                                            <f:selectItems value="#{generalController.daysSelectOne}"/>
+                                            <f:ajax/>
+                                        </h:selectOneMenu>
                                     </div>
                                 </div>                                
                             </div>
@@ -87,39 +64,30 @@
                                 <div class="col-md-2">
                                     <div class="form-group">
                                         <label class="control-label">Month</label>
-                                        <select class="form-control">	
-                                            <option value="1">January</option>
-                                            <option value="2">February</option>
-                                            <option value="3">March</option>
-                                            <option value="4">April</option>
-                                            <option value="5">May</option>
-                                            <option value="6">June</option>
-                                            <option value="7">July</option>
-                                            <option value="8">August</option>
-                                            <option value="9">September</option>
-                                            <option value="10">October</option>
-                                            <option value="11">November</option>
-                                            <option value="12">December</option>                                            
-                                        </select>
+                                        <h:selectOneMenu value="#{castController.currentCast.endMonth}" class="form-control">	
+                                            <f:selectItems value="#{generalController.monthSelectOne}"/>    
+                                            <f:ajax/>
+                                        </h:selectOneMenu>
                                     </div>
                                 </div>                                
                             </div>
                             <hr/>
+
                             <h4>People can apply from</h4>
                             <div class="row">
                                 <div class="col-md-2">
                                     <div class="radio">
                                         <label>
-                                            <input jsf:id="male" type="radio" >
-
+                                            <input value="LOCAL" jsf:id="local" type="radio" p:name="applyLocation">
+                                                <f:ajax event="change" listener="#{castController.testListener}" />
                                             </input>
                                             Anywhere in Nigeria
-                                        </label>
+                                        </label>                                        
                                     </div>
                                     <div class="radio">
                                         <label>
-                                            <input jsf:id="female" type="radio" >
-
+                                            <input value="ANYWHERE" jsf:id="anywhere" type="radio" p:name="applyLocation">
+                                                <f:ajax event="change" listener="#{castController.testListener}" />
                                             </input>
                                             Any country
                                         </label>
@@ -131,8 +99,8 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input jsf:id="description" type="text" class="form-control" placeholder="http://" >
-
+                                        <input jsf:value="#{castController.currentCast.website}" jsf:id="description" type="text" class="form-control" placeholder="http://" >
+                                            <f:ajax/>
                                         </input>
                                     </div>
                                 </div>
@@ -141,34 +109,34 @@
                             <h4>Payment info</h4>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <div class="checkbox">
+                                    <div class="radio">
                                         <label>
-                                            <input jsf:id="unpaid" type="checkbox" >
-
+                                            <input value="1" jsf:id="unpaid" type="radio" p:name="paymentOption">                                               
+                                                <f:ajax/>
                                             </input>
                                             Unpaid
                                         </label>
                                     </div>
-                                    <div class="checkbox">
+                                    <div class="radio">
                                         <label>
-                                            <input jsf:id="expense" type="checkbox" >
-
+                                            <input value="2" jsf:id="expense" type="radio" p:name="paymentOption">
+                                                <f:ajax/>
                                             </input>
                                             Expenses only
                                         </label>
                                     </div>
-                                    <div class="checkbox">
+                                    <div class="radio">
                                         <label>
-                                            <input jsf:id="paid" type="checkbox" >
-
+                                            <input value="3" jsf:id="paid" type="radio" p:name="paymentOption">
+                                                <f:ajax/>
                                             </input>
                                             Paid
                                         </label>
                                     </div>
                                     <div class="form-group">
                                         <small>e.g. $20 per hour, $200 per day etc.</small>
-                                        <input  type="text" class="form-control" jsf:id="paymentDetails" placeholder="Enter the payment details...">
-
+                                        <input jsf:value="#{castController.currentCast.paymentDetails}"  type="text" class="form-control" jsf:id="paymentDetails" placeholder="Enter the payment details...">
+                                            <f:ajax/>
                                         </input>
                                     </div>
                                 </div>
@@ -177,25 +145,25 @@
                             <h4>Fees</h4>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <div class="checkbox">
+                                    <div class="radio">
                                         <label>
-                                            <input jsf:id="uncharged" type="checkbox" >
-
+                                            <input value="1" jsf:id="uncharged" type="radio" p:name="feesOption">
+                                                <f:ajax/>
                                             </input>
                                             Applicants are not charged fees
                                         </label>
                                     </div>
-                                    <div class="checkbox">
+                                    <div class="radio">
                                         <label>
-                                            <input jsf:id="charged" type="checkbox" >
-
+                                            <input value="2" jsf:id="charged" type="radio" p:name="feesOption">
+                                                <f:ajax/>
                                             </input>
                                             Applicants are charged fees
                                         </label>
                                     </div>
                                     <div class="form-group">
-                                        <input  type="text" class="form-control" jsf:id="feesDetails" placeholder="Enter the fees details...">
-
+                                        <input jsf:value="#{castController.currentCast.feesDetails}" type="text" class="form-control" jsf:id="feesDetails" placeholder="Enter the fees details...">
+                                            <f:ajax/>
                                         </input>
                                     </div>
                                 </div>
@@ -204,21 +172,24 @@
                             <hr/>
                             <h4>Questions for applicants</h4>
                             <small>E.g. Are you available to audition for the role on Friday 12 March at 5pm?</small>
-                            <div class="row">
-                                <div class="col-md-5">
-                                    <div class="form-group">
-                                        <input  type="text" class="form-control" jsf:id="question">
 
-                                        </input>
-                                    </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <ui:repeat id="questions" value="#{castController.currentCast.castQuestions}" var="quest">
+                                        <div class="form-group">
+                                            <input jsf:id="question" jsf:value="#{quest.question}" type="text" class="form-control">
+                                                <f:ajax/>
+                                            </input>
+                                        </div>
+                                    </ui:repeat>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-2 block">
                                     <div class="form-group">
-                                        <button id="addQuestion" class="btn btn-group btn-default btn-animated">Ask another question <i class="fa fa-plus-circle"></i>
-
-                                        </button>
+                                        <h:commandLink  id="addQuestion" class="btn btn-group btn-default btn-animated">Ask another question <i class="fa fa-plus-circle"></i>
+                                            <f:ajax event="click" render="@form question" listener="#{castController.addQuestion}"/>
+                                        </h:commandLink>
                                     </div>
                                 </div>
                             </div>
@@ -226,13 +197,13 @@
                             <div class="row">
                                 <div class="col-md-offset-5 col-md-7 inline">
                                     <div class="btn-group">
-                                        <button id="backButton" jsf:outcome="roleDetails" class="btn btn-group btn-animated"><i class="fa fa-angle-double-left"></i> Back
+                                        <button id="backButton" jsf:outcome="role-summary" class="btn btn-group btn-animated"><i class="fa fa-angle-double-left"></i> Back
 
                                         </button>
                                     </div>
                                     <div class="btn-group">
                                         <button id="nextButton" jsf:outcome="notsettings" class="btn btn-group btn-default btn-animated">Next <i class="fa fa-angle-double-right"></i>
-
+                                           
                                         </button>
                                     </div>
                                 </div>

@@ -7,13 +7,16 @@ package com.castu.castu.controller;
 
 import com.castu.castu.ejb.UserBean;
 import com.castu.castu.entity.Category;
-import com.castu.castu.entity.Gender;
+import com.castu.castu.enums.Gender;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import java.text.DateFormatSymbols;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.faces.model.SelectItem;
@@ -51,10 +54,32 @@ public class GeneralController implements Serializable {
     }
 
     public SelectItem[] getAgeSelection() {
-        List<Integer> ageRange = new ArrayList<Integer>();
-        for (int i = 0; i <= 99; i++) {
-            ageRange.add(i);
-        }
+        List<Integer> ageRange = generateRange(0, 99);
         return JsfUtil.getSelectItems(ageRange, false);
+    }
+
+    public SelectItem[] getDaysSelectOne() {
+        List<Integer> daysRange = generateRange(1, 31);
+        return JsfUtil.getSelectItems(daysRange, false);
+    }
+
+    private List<Integer> generateRange(int min, int max) {
+        List<Integer> range = new ArrayList<Integer>();
+        for (int i = min; i <= max; i++) {
+            range.add(i);
+        }
+        return range;
+    }
+
+    public SelectItem[] getMonthSelectOne() {
+        DateFormatSymbols dfs = new DateFormatSymbols();
+        String[] monthSymbols = dfs.getMonths();
+
+        Map<Integer, String> months = new HashMap<>();
+
+        for (int i = 1; i <= 12; i++) {
+            months.put(i, monthSymbols[i - 1]);
+        }
+        return JsfUtil.getSelectItems(months, false);
     }
 }

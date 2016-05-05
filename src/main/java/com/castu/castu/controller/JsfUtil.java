@@ -1,6 +1,7 @@
 package com.castu.castu.controller;
 
 import java.util.List;
+import java.util.Map;
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -8,6 +9,25 @@ import javax.faces.convert.Converter;
 import javax.faces.model.SelectItem;
 
 public class JsfUtil {
+
+    public static SelectItem[] getSelectItems(Map<?, ?> map, boolean selectOne) {
+        if (map == null) {
+            return null;
+        }
+        int size = selectOne ? map.size() + 1 : map.size();
+        SelectItem[] items = new SelectItem[size];
+        int i = 0;
+        if (selectOne) {
+            items[0] = new SelectItem("", "---");
+            i++;
+        }
+
+        for (Map.Entry<?, ?> entry : map.entrySet()) {
+            items[i++] = new SelectItem(entry.getKey(), entry.getValue().toString());
+        }
+
+        return items;
+    }
 
     public static SelectItem[] getSelectItems(List<?> entities, boolean selectOne) {
         if (entities == null) {

@@ -10,9 +10,10 @@ import com.castu.castu.ejb.CastBean;
 import com.castu.castu.ejb.CategoryBean;
 import com.castu.castu.ejb.SubCategoryBean;
 import com.castu.castu.entity.Cast;
+import com.castu.castu.entity.CastQuestion;
 import com.castu.castu.entity.CastRole;
 import com.castu.castu.entity.Category;
-import com.castu.castu.entity.Gender;
+import com.castu.castu.enums.Gender;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
@@ -162,11 +163,29 @@ public class CastController implements Serializable {
         return "role-summary";
     }
 
+    public void addQuestion() {
+        LOG.log(Level.INFO, "Adding quesiton...");
+        if (currentCast != null) {
+            LOG.log(Level.INFO, "Current cast not null...");
+            CastQuestion question = new CastQuestion();
+            int sn = currentCast.getCastQuestions() != null ? currentCast.getCastQuestions().size() + 1 : 1; //TODO:check! can be buggy!
+            LOG.log(Level.INFO, "Question S/N is {0}...", sn);
+            question.setSn(sn);
+            currentCast.addCastQuestion(question);
+        }
+    }
+
     public String toRoleDetails() {
         if (currentCast.getCastRoles() == null || currentCast.getCastRoles().isEmpty()) {
             return prepareAddRole();
         }
         return "role-summary";
+
+    }
+    
+    public String toAddInfo() {
+        addQuestion();
+        return "additionalInfo";
 
     }
 
@@ -262,6 +281,11 @@ public class CastController implements Serializable {
                 return null;
             }
         }
+
+    }
+
+    public void testListener() {
+        LOG.log(Level.INFO, "=========APPLY LOCATION SELECTED: {0}==========", currentCast.getApplyLocation());
 
     }
 }

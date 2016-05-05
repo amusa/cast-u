@@ -7,7 +7,7 @@ package com.castu.castu.controller;
 
 import com.castu.castu.controller.JsfUtil.PersistAction;
 import com.castu.castu.ejb.UserBean;
-import com.castu.castu.entity.Gender;
+import com.castu.castu.enums.Gender;
 import com.castu.castu.entity.User;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;

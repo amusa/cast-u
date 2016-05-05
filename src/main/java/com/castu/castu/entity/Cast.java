@@ -5,6 +5,7 @@
  */
 package com.castu.castu.entity;
 
+import com.castu.castu.enums.MonthEnum;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,17 +36,15 @@ public class Cast implements Serializable {
     private String description;
     private Integer endDay;
     private MonthEnum endMonth;
-    private Boolean localApplicationOnly;
+    private String applyLocation;
     private String website;
-    private Boolean unpaid;
-    private Boolean expenseOnly;
-    private Boolean paid;
+    private Integer paymentOption;
     private String paymentDetails;
-    private Boolean feesApply;
+    private Integer feesOption;
     private String feesDetails;
-    private Integer notificationOption;
+    private Boolean defaultEmail;
     private String notificationEmail;
-    private Integer notificationFrequency;
+    private String notificationFrequency;
     private List<CastQuestion> castQuestions;
     private List<CastRole> castRoles;
 
@@ -144,12 +143,12 @@ public class Cast implements Serializable {
         this.endMonth = endMonth;
     }
 
-    public Boolean getLocalApplicationOnly() {
-        return localApplicationOnly;
+    public String getApplyLocation() {
+        return applyLocation;
     }
 
-    public void setLocalApplicationOnly(Boolean localApplicationOnly) {
-        this.localApplicationOnly = localApplicationOnly;
+    public void setApplyLocation(String applyLocation) {
+        this.applyLocation = applyLocation;
     }
 
     public String getWebsite() {
@@ -160,28 +159,12 @@ public class Cast implements Serializable {
         this.website = website;
     }
 
-    public Boolean getUnpaid() {
-        return unpaid;
+    public Integer getPaymentOption() {
+        return paymentOption;
     }
 
-    public void setUnpaid(Boolean unpaid) {
-        this.unpaid = unpaid;
-    }
-
-    public Boolean getExpenseOnly() {
-        return expenseOnly;
-    }
-
-    public void setExpenseOnly(Boolean expenseOnly) {
-        this.expenseOnly = expenseOnly;
-    }
-
-    public Boolean getPaid() {
-        return paid;
-    }
-
-    public void setPaid(Boolean paid) {
-        this.paid = paid;
+    public void setPaymentOption(Integer paymentOption) {
+        this.paymentOption = paymentOption;
     }
 
     public String getPaymentDetails() {
@@ -192,12 +175,12 @@ public class Cast implements Serializable {
         this.paymentDetails = paymentDetails;
     }
 
-    public Boolean getFeesApply() {
-        return feesApply;
+    public Integer getFeesOption() {
+        return feesOption;
     }
 
-    public void setFeesApply(Boolean feesApply) {
-        this.feesApply = feesApply;
+    public void setFeesOption(Integer feesOption) {
+        this.feesOption = feesOption;
     }
 
     public String getFeesDetails() {
@@ -208,12 +191,12 @@ public class Cast implements Serializable {
         this.feesDetails = feesDetails;
     }
 
-    public Integer getNotificationOption() {
-        return notificationOption;
+    public Boolean getDefaultEmail() {
+        return defaultEmail;
     }
 
-    public void setNotificationOption(Integer notificationOption) {
-        this.notificationOption = notificationOption;
+    public void setDefaultEmail(Boolean defaultEmail) {
+        this.defaultEmail = defaultEmail;
     }
 
     public String getNotificationEmail() {
@@ -224,11 +207,11 @@ public class Cast implements Serializable {
         this.notificationEmail = notificationEmail;
     }
 
-    public Integer getNotificationFrequency() {
+    public String getNotificationFrequency() {
         return notificationFrequency;
     }
 
-    public void setNotificationFrequency(Integer notificationFrequency) {
+    public void setNotificationFrequency(String notificationFrequency) {
         this.notificationFrequency = notificationFrequency;
     }
 
@@ -252,9 +235,16 @@ public class Cast implements Serializable {
 
     public void addCastRole(CastRole castRole) {
         if (castRoles == null) {
-            castRoles = new ArrayList<CastRole>();
+            castRoles = new ArrayList<>();
         }
         castRoles.add(castRole);
+    }
+
+    public void addCastQuestion(CastQuestion question) {
+        if (castQuestions == null) {
+            castQuestions = new ArrayList<>();
+        }
+        castQuestions.add(question);
     }
 
     @Override
