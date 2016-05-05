@@ -7,8 +7,6 @@ package com.castu.castu.controller;
 
 import com.castu.castu.controller.JsfUtil.PersistAction;
 import com.castu.castu.ejb.CastBean;
-import com.castu.castu.ejb.CastQuestionBean;
-import com.castu.castu.ejb.CastRoleBean;
 import com.castu.castu.ejb.CategoryBean;
 import com.castu.castu.ejb.SubCategoryBean;
 import com.castu.castu.entity.Cast;
@@ -58,11 +56,12 @@ public class CastController implements Serializable {
     private CastRole currentCastRole;
 
     /**
-     * Creates a new instance of UserController
+     * Creates a new instance of CastController
      */
     public CastController() {
     }
 
+    //*****************************Begin Assessors******************************
     public Cast getCurrentCast() {
         return currentCast;
     }
@@ -87,53 +86,6 @@ public class CastController implements Serializable {
         this.castQuestions = castQuestions;
     }
 
-    protected void setEmbeddableKeys() {
-    }
-
-    protected void initializeEmbeddableKey() {
-    }
-
-    private CastBean getBean() {
-        return castBean;
-    }
-
-    public void prepareCreate() {
-        currentCast = new Cast();
-        LOG.log(Level.INFO, "Preparing to create cast {0}...", currentCast);
-        initializeEmbeddableKey();
-    }
-
-    public void cancel() {
-        casts = null;
-        currentCast = null;
-    }
-
-    public void create() {
-        LOG.log(Level.INFO, "Creating user {0}...", currentCast);
-        persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("CastCreated"));
-        if (!JsfUtil.isValidationFailed()) {
-            casts = null;
-        }
-
-    }
-
-    public void update() {
-        persist(PersistAction.UPDATE, ResourceBundle.getBundle("/Bundle").getString("CastUpdated"));
-    }
-
-    public void destroy(Cast cast) {
-        setCurrentCast(cast);
-        destroy();
-    }
-
-    public void destroy() {
-        persist(PersistAction.DELETE, ResourceBundle.getBundle("/Bundle").getString("CastDeleted"));
-        if (!JsfUtil.isValidationFailed()) {
-            currentCast = null; // Remove selection
-            casts = null;
-        }
-    }
-
     public List<Cast> getCasts() {
         if (casts == null) {
             casts = getBean().findAll();
@@ -149,12 +101,48 @@ public class CastController implements Serializable {
         this.castRoles = castRoles;
     }
 
+    private CastBean getBean() {
+        return castBean;
+    }
+
+    public Cast getCast(int id) {
+        return getBean().find(id);
+    }
+
     public CastRole getCurrentCastRole() {
         return currentCastRole;
     }
 
     public void setCurrentCastRole(CastRole currentCastRole) {
         this.currentCastRole = currentCastRole;
+    }
+    //********************************End Assessors*****************************
+
+    //****************************Begin Helper methods**************************
+    protected void setEmbeddableKeys() {
+    }
+
+    protected void initializeEmbeddableKey() {
+    }
+
+    private void doCrossRefs() {
+        currentCast.setCastRoles(castRoles);
+        currentCast.setCastQuestions(castQuestions);
+    }
+    //*************************End Helper methods*******************************
+
+    //***************************Begin Navigation methods***********************
+    public String toRoleDetails() {
+        if (currentCast.getCastRoles() == null || currentCast.getCastRoles().isEmpty()) {
+            return prepareAddRole();
+        }
+        return "role-summary";
+
+    }
+
+    public String toAddInfo() {
+        addCastQuestion();
+        return "additionalInfo";
     }
 
     public String prepareAddRole() {
@@ -178,34 +166,36 @@ public class CastController implements Serializable {
         castRoles.add(currentCastRole);
         return "role-summary";
     }
+    //****************************End Navigation methods************************
 
-    public void addCastQuestion() {
-        LOG.log(Level.INFO, "Adding quesiton...");
-        int sn;
-
-        if (castQuestions == null) {
-            castQuestions = new ArrayList<>();
+    //*****************************Begin CRUD methods***************************
+    public void create() {
+        LOG.log(Level.INFO, "Creating user {0}...", currentCast);
+        persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle")
+                .getString("CastCreated"));
+        if (!JsfUtil.isValidationFailed()) {
+            casts = null;
         }
-
-        sn = castQuestions != null ? castQuestions.size() + 1 : 1; //TODO:check! can be buggy!
-        LOG.log(Level.INFO, "Question S/N is {0}...", sn);
-        CastQuestion question = new CastQuestion();
-        question.setSn(sn);
-        question.setCast(currentCast);
-        castQuestions.add(question);
-    }
-
-    public String toRoleDetails() {
-        if (currentCast.getCastRoles() == null || currentCast.getCastRoles().isEmpty()) {
-            return prepareAddRole();
-        }
-        return "role-summary";
 
     }
 
-    public String toAddInfo() {
-        addCastQuestion();
-        return "additionalInfo";
+    public void update() {
+        persist(PersistAction.UPDATE, ResourceBundle.getBundle("/Bundle")
+                .getString("CastUpdated"));
+    }
+
+    public void destroy(Cast cast) {
+        setCurrentCast(cast);
+        destroy();
+    }
+
+    public void destroy() {
+        persist(PersistAction.DELETE, ResourceBundle.getBundle("/Bundle")
+                .getString("CastDeleted"));
+        if (!JsfUtil.isValidationFailed()) {
+            currentCast = null; // Remove selection
+            casts = null;
+        }
     }
 
     private void persist(PersistAction persistAction, String successMessage) {
@@ -238,19 +228,46 @@ public class CastController implements Serializable {
                 if (msg.length() > 0) {
                     JsfUtil.addErrorMessage(msg);
                 } else {
-                    JsfUtil.addErrorMessage(ex, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
+                    JsfUtil.addErrorMessage(ex, ResourceBundle.getBundle("/Bundle")
+                            .getString("PersistenceErrorOccured"));
                 }
             } catch (Exception ex) {
                 Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, null, ex);
-                JsfUtil.addErrorMessage(ex, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
+                JsfUtil.addErrorMessage(ex, ResourceBundle.getBundle("/Bundle")
+                        .getString("PersistenceErrorOccured"));
             }
         }
     }
 
-    public Cast getCast(int id) {
-        return getBean().find(id);
+    public void prepareCreate() {
+        currentCast = new Cast();
+        LOG.log(Level.INFO, "Preparing to create cast {0}...", currentCast);
+        initializeEmbeddableKey();
     }
 
+    public void cancel() {
+        casts = null;
+        currentCast = null;
+    }
+
+    public void addCastQuestion() {
+        LOG.log(Level.INFO, "Adding quesiton...");
+        int sn;
+
+        if (castQuestions == null) {
+            castQuestions = new ArrayList<>();
+        }
+
+        sn = castQuestions != null ? castQuestions.size() + 1 : 1; //TODO:check! can be buggy!
+        LOG.log(Level.INFO, "Question S/N is {0}...", sn);
+        CastQuestion question = new CastQuestion();
+        question.setSn(sn);
+        question.setCast(currentCast);
+        castQuestions.add(question);
+    }
+    //******************************End CRUD methods****************************
+
+    //**************************Begin SelectItems getters***********************
     public SelectItem[] getCastSelectOne() {
         return JsfUtil.getSelectItems(getBean().findAll(), true);
     }
@@ -272,21 +289,20 @@ public class CastController implements Serializable {
 
         return null;
     }
+    //****************************End SelectItems getters***********************
 
-    private void doCrossRefs() {
-        currentCast.setCastRoles(castRoles);
-        currentCast.setCastQuestions(castQuestions);
-    }
-
+    //******************************Begin Converters****************************
     @FacesConverter(forClass = Cast.class)
     public static class CastControllerConverter implements Converter {
 
         @Override
-        public Object getAsObject(FacesContext facesContext, UIComponent component, String value) {
+        public Object getAsObject(FacesContext facesContext, UIComponent component,
+                String value) {
             if (value == null || value.length() == 0) {
                 return null;
             }
-            CastController controller = (CastController) facesContext.getApplication().getELResolver().
+            CastController controller = (CastController) facesContext.getApplication()
+                    .getELResolver().
                     getValue(facesContext.getELContext(), null, "castController");
             return controller.getCast(getKey(value));
         }
@@ -304,7 +320,8 @@ public class CastController implements Serializable {
         }
 
         @Override
-        public String getAsString(FacesContext facesContext, UIComponent component, Object object) {
+        public String getAsString(FacesContext facesContext, UIComponent component,
+                Object object) {
             if (object == null) {
                 return null;
             }
@@ -312,15 +329,12 @@ public class CastController implements Serializable {
                 Cast o = (Cast) object;
                 return getStringKey(o.getId());
             } else {
-                Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "object {0} is of type {1}; expected type: {2}", new Object[]{object, object.getClass().getName(), Cast.class.getName()});
+                Logger.getLogger(this.getClass().getName()).log(Level.SEVERE,
+                        "object {0} is of type {1}; expected type: {2}", new Object[]{object,
+                            object.getClass().getName(), Cast.class.getName()});
                 return null;
             }
         }
-
     }
-
-    public void testListener() {
-        LOG.log(Level.INFO, "=========APPLY LOCATION SELECTED: {0}==========", currentCast.getApplyLocation());
-
-    }
+    //*******************************End Converters*****************************
 }

@@ -8,32 +8,19 @@
       xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
 
     <body>
-
         <ui:composition template="./WEB-INF/castu-template-main.xhtml">
 
-            <ui:define name="title">
-                Additional Information
-            </ui:define>
+            <ui:define name="title">Additional Information</ui:define>
+            
+            <ui:define name="header-top"></ui:define>
+            
+            <ui:define name="header-dropdown"></ui:define>
+            
+            <ui:define name="header-nav"></ui:define>
 
-            <ui:define name="header-top">
+            <ui:define name="banner"></ui:define>
 
-            </ui:define>
-
-            <ui:define name="header-dropdown">
-
-            </ui:define>
-
-            <ui:define name="header-nav">
-
-            </ui:define>
-
-            <ui:define name="banner">
-
-            </ui:define>
-
-            <ui:define name="breadcrumb">
-
-            </ui:define>
+            <ui:define name="breadcrumb"></ui:define>
 
             <f:metadata>
                 <f:viewParam name="applyLocation" value="#{castController.currentCast.applyLocation}"/>
@@ -72,14 +59,13 @@
                                 </div>                                
                             </div>
                             <hr/>
-
                             <h4>People can apply from</h4>
                             <div class="row">
                                 <div class="col-md-2">
                                     <div class="radio">
                                         <label>
                                             <input value="LOCAL" jsf:id="local" type="radio" p:name="applyLocation">
-                                                <f:ajax event="change" listener="#{castController.testListener}" />
+                                               
                                             </input>
                                             Anywhere in Nigeria
                                         </label>                                        
@@ -87,7 +73,7 @@
                                     <div class="radio">
                                         <label>
                                             <input value="ANYWHERE" jsf:id="anywhere" type="radio" p:name="applyLocation">
-                                                <f:ajax event="change" listener="#{castController.testListener}" />
+                                                
                                             </input>
                                             Any country
                                         </label>
