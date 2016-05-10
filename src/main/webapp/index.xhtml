@@ -150,7 +150,13 @@
                                              data-easing="easeOutQuad"
                                              data-start="5800"
                                              data-end="10000"
-                                             data-endspeed="600">Where talents gets discovered <br> Wanted: actors, models, musicians, and more...</br><br> Place a free call</br>
+                                             data-endspeed="600">Where talents gets discovered <br> Wanted: actors, models, musicians, and more...</br>
+<!--                                            <br> Place a free call</br>-->
+                                            <form jsf:id="freeCallForm" class="margin-clear">
+                                                <a jsf:id="freeCall" href="castcall.xhtml" class="btn btn-default btn-lg btn-animated">Place a free call <i class="fa fa-check"></i>
+                                                    <f:ajax listener="#{castController.prepareCreate}" event="click" />
+                                                </a>
+                                            </form>
                                         </div>
 
                                         <!-- LAYER NR. 10 -->
